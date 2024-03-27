@@ -1,44 +1,4 @@
 
-query prQuery($name_repo :String!) {
-   repository(owner: "ALmogZinger", name: $name_repo) {
-   pullRequests{
-        nodes{
-            comments{
-                nodes{
-                    author{
-                        avatarUrl
-                    }
-                    body
-                }
-                pageInfo{
-                    hasNextPage
-                    endCursor
-                }
-            }
-        }
-    }
-  }
-}
-
-query repoQuery($name_repo : String!) 
-{
-    repository(owner: "AlmogZinger" , name: $name_repo)
-    {
-        pullRequests(first: 1 )
-        {
-            nodes{
-                comments{
-                    nodes{
-                        author{
-                            avatarUrl
-                        }
-                        bodyText
-                    }
-                }
-            }
-        }
-    }
-}
 query allPullRequests($name_repo: String!) {
   repository(owner: "AlmogZinger", name: $name_repo) {
     pullRequests(first: 100) { 
@@ -57,6 +17,19 @@ query allPullRequests($name_repo: String!) {
     }
   }
 }
+
+query listOfRepo($owner : String!){
+    user(login: $owner){
+        repositories(first: 100)
+        {
+            nodes{
+                name
+            }
+        }
+    }
+}
+
+
 
 #nir query- 
 query nirprQuery($prNumber: Int!) {
