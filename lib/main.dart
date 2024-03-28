@@ -14,9 +14,12 @@
 /// ```
 library;
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:flutter/widgets.dart';
+import 'package:test_drive/graphql/pull_req.graphql.dart';
+import 'package:test_drive/repo_list_widget.dart';
 import '../local.dart';
 import '../helpers.dart'show withGenericHandling;
 // to run the example, replace <YOUR_PERSONAL_ACCESS_TOKEN> with your GitHub token in ./local.dart
@@ -32,7 +35,7 @@ import '../helpers.dart'show withGenericHandling;
 ///
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -44,9 +47,9 @@ class MyApp extends StatelessWidget {
         title: 'GraphQl-Flutter Test Drive',
         theme: ThemeData(
           useMaterial3: true,
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepOrange),
+          colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 3, 173, 69)),
         ),
-        home: ScreenWidget(),
+        home: const ScreenWidget(),
     );
   }
 }
@@ -61,112 +64,105 @@ class ScreenWidget extends StatelessWidget{
       'Authorization': 'Bearer $myToken',
     });
 
-    final client = ValueNotifier<GraphQLClient>(
-      GraphQLClient(
+    final client = ValueNotifier(GraphQLClient(
         cache: GraphQLCache(),
         link: httpLink,
-      ),
+    ),
     );
 
   return GraphQLProvider(
-    client: client ,
-    child: const CacheProvider(
-      child: MyHomePage(title : 'Home Page')
-      ) ,
-  );
-  }
-
-}
-class RepoDropBox extends StatefulWidget {
-  const RepoDropBox({super.key});
-
-  @override
-  State< RepoDropBox> createState() => RepoDropBoxState();
-}
-
-class RepoDropBoxState extends State<RepoDropBox> {
-  String repoDropBoxValue = "Peack a repo";
-
-
-  @override
-  Widget build(BuildContext context) {
-    return  SizedBox(
-      width: 200.0,
-  height: 300.0,
-      child: Query(
-        options: 
-        QueryOptions(
-          document: gql(r'''
-         query listOfRepo($owner : String!){
-            user(login: $owner){
-                repositories(first: 100)
-                {
-                    nodes{
-                        name
-                    }
-                }
-            }
-        }
-        '''
-            ),
-            variables: const {
-              'owner' :"AlmogZinger" , 
-            }
-            ), 
-        builder: withGenericHandling((result, {fetchMore, refetch}){
-                  final list = result.data!['user']['repositories']['nodes'];
-                  List<dynamic> strList = list.map((value) => value['name'].toString()).toList();
-                    return  Expanded(
-                      child: ListView(
-                         children: [
-                        for (var repo in strList) 
-                        ListTile(
-                        leading: const Icon(Icons.favorite), 
-                        title: Text(repo),
-                        )
-                        ]
-                      ),
-                      );
-        }
-        )
-        ),
+    client : client ,
+    child : const MyHomePage(title : 'Home Page')
     );
-  
   }
+
 }
-
-
 
 class MyHomePage extends StatefulWidget{
   const MyHomePage ({
-       Key? key,
+       super.key,
     this.title,
-  }) : super(key: key);
+  });
 
   final String? title;
+
 @override
   MyHomePageState createState() => MyHomePageState();
 }
 
+class PullRequeataWidget extends StatelessWidget {
+  const PullRequeataWidget({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Query$allPullRequests$Widget(
+      options: Options$Query$allPullRequests(
+        variables: Variables$Query$allPullRequests(name_repo: "Students"),
+      ),
+      builder: (result, {fetchMore, refetch}) {
+        return Text(
+        "work"
+        );
+      }
+    );
+  }
+}
 class MyHomePageState extends State<MyHomePage>{
   String name_repo = "Students-UI"; 
   final myController = TextEditingController();
-
+   late String _query;
+  dynamic result ; 
     @override
   void dispose() {
     myController.dispose();
     super.dispose();
   }
 
-
   void changePr(String newRepo)
   {
     setState(() {
       name_repo = newRepo; 
     });
+  }   
+   @override
+    void initState() {
+    _loadQuery("allPullRequests");
+    result = representComments();
+    super.initState();
   }
+ 
+   Future<void> _loadQuery(String fileName) async {
+    try {
+      final String query = await rootBundle.loadString('lib/graphql/$fileName.graphql');
+      setState(() {
+        _query = query;
+      });
+    } catch (error) {
+      print('Error loading query: $error');
+    }
+  }
+  dynamic representComments() async {
+    if (_query  =="") {
+      return;
+    }
 
-
+    final  options = Options$Query$allPullRequests(
+      variables: Variables$Query$allPullRequests(
+        name_repo: name_repo)
+        );
+    
+     QueryOptions(
+      document: gql(_query),
+       variables:{
+                'name_repo': name_repo,
+              });
+    final result =  await widget.client.query$allPullRequests(options);
+    final parseData = Query$allPullRequests.fromJson(result);
+    List<dynamic> cogen_list = List.empty();
+    if (parseData.repository!= null && parseData.repository!.pullRequests.nodes != null)
+    {  cogen_list = parseData.repository!.pullRequests.nodes!;}
+                
+  }
     @override 
     Widget build (BuildContext context){
       return Scaffold(
@@ -179,59 +175,46 @@ class MyHomePageState extends State<MyHomePage>{
                 children: [
                 const Text("Name of the repo:"
                 ),
-                 TextButton(
-                  onPressed: (){ changePr(name_repo=="Students" ? "Students-UI" : "Students"); }, 
-                  child:  Text(name_repo)
+                 TextField(
+                      controller: myController,
+                      decoration: const InputDecoration(
+                        hintText: 'write repo from the list'
+                      ),
                  ),
                const RepoDropBox()
                  ]  
              ),
-
-             
+              TextButton(onPressed: () => changePr(myController.text),
+               child: const Text("click to change repo"))
+             ,
               Query(
                 options: QueryOptions(
-                  document: gql( r'''
-                              
-query allPullRequests($name_repo: String!) {
-  repository(owner: "AlmogZinger", name: $name_repo) {
-    pullRequests(first: 100) { 
-      nodes {
-        comments(first: 100) { 
-          nodes {
-            author {
-             avatarUrl
-            }
-            bodyText
-          }
-        }
-      }
-    }
-  }
-}
-
-
-              '''),
+                  document: gql( _query),
               variables:{
                 'name_repo': name_repo,
               },
               ),
              builder: withGenericHandling((result, {fetchMore, refetch}){
-                final Comments = (result.data!['repository']['pullRequests']['nodes']
-                as List<dynamic>);
+                final parseData = Query$allPullRequests.fromJson(result.data!);
+                List<dynamic> cogen_list = List.empty();
+                if (parseData.repository!= null && parseData.repository!.pullRequests.nodes != null)
+               {  cogen_list = parseData.repository!.pullRequests.nodes!;}
+                
                 return  Expanded(
                   child: ListView(
                         children: [
                           Padding(
                             padding: const EdgeInsets.all(20),
-                            child: Text ("in the repo $name_repo there is ${Comments.length} pr "),
+                            child: Text ("in the repo $name_repo there is ${cogen_list.length} pr "),
                             ),
-                            for (var commentsG in Comments)  
-                            for(var comments in commentsG["comments"]["nodes"])
+                            for (var commentsG in cogen_list)  
+                            for(var comments in commentsG.comments.nodes)
+
                                  ListTile(
                                   leading: CircleAvatar(
-                                   backgroundImage: NetworkImage(comments['author']['avatarUrl']),
+                                   backgroundImage: NetworkImage(comments.author.avatarUrl),
                                     ),
-                                  title: Text(comments['bodyText']),
+                                  title: Text(comments.bodyText?? ""),
                                 )
                             
                         ]
@@ -247,3 +230,4 @@ query allPullRequests($name_repo: String!) {
         );
     }
 }
+

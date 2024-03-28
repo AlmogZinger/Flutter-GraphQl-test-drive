@@ -1,0 +1,18 @@
+query allPullRequests($name_repo: String!) {
+  repository(owner: "AlmogZinger", name: $name_repo) {
+    pullRequests(first: 100) {
+      nodes {
+        number
+        body
+        ...PRMessage
+      }
+    }
+  }
+}
+
+fragment PRMessage on Comment {
+  author {
+    avatarUrl
+  }
+  bodyText
+}

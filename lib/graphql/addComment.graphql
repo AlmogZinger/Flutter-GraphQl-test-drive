@@ -1,0 +1,14 @@
+mutation AddComment($pullRequestId :ID! , $Text : String!){
+    addPullRequestReviewComment(input: {
+        body :$Text,
+        pullRequestId :$pullRequestId
+    }){
+        comment{
+            author
+            {
+                avatarUrl
+                },
+                bodyText
+                }
+    }
+}

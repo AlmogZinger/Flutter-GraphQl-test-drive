@@ -45073,7 +45073,7 @@ class _CopyWithStubImpl$Input$StatusCheckConfigurationInput<TRes>
     implements CopyWith$Input$StatusCheckConfigurationInput<TRes> {
   _CopyWithStubImpl$Input$StatusCheckConfigurationInput(this._res);
 
-  final TRes _res;
+  TRes _res;
 
   call({
     String? context,
