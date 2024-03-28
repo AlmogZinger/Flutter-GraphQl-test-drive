@@ -433,9 +433,9 @@ extension ClientExtension$Query$listOfRepo on graphql.GraphQLClient {
     required Variables$Query$listOfRepo variables,
     bool broadcast = true,
   }) =>
-      this.writeQuery(
+      writeQuery(
         graphql.Request(
-          operation: graphql.Operation(document: documentNodeQuerylistOfRepo),
+          operation: const graphql.Operation(document: documentNodeQuerylistOfRepo),
           variables: variables.toJson(),
         ),
         data: data.toJson(),
@@ -445,9 +445,9 @@ extension ClientExtension$Query$listOfRepo on graphql.GraphQLClient {
     required Variables$Query$listOfRepo variables,
     bool optimistic = true,
   }) {
-    final result = this.readQuery(
+    final result = readQuery(
       graphql.Request(
-        operation: graphql.Operation(document: documentNodeQuerylistOfRepo),
+        operation: const graphql.Operation(document: documentNodeQuerylistOfRepo),
         variables: variables.toJson(),
       ),
       optimistic: optimistic,
@@ -464,7 +464,7 @@ graphql.ObservableQuery<Query$listOfRepo> useWatchQuery$listOfRepo(
     graphql_flutter.useWatchQuery(options);
 
 class Query$listOfRepo$Widget extends graphql_flutter.Query<Query$listOfRepo> {
-  Query$listOfRepo$Widget({
+  const Query$listOfRepo$Widget({
     widgets.Key? key,
     required Options$Query$listOfRepo options,
     required graphql_flutter.QueryBuilder<Query$listOfRepo> builder,
