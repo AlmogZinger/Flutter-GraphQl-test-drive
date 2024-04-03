@@ -43,31 +43,30 @@ class MyApp extends StatelessWidget {
      var httpLink = HttpLink('https://api.github.com/graphql', defaultHeaders: {
       'Authorization': 'Bearer $myToken',
     });
-
-    final client = ValueNotifier(GraphQLClient(
+final client = GraphQLClient(
         cache: GraphQLCache(),
         link: httpLink,
-    ),
     );
-
   return GraphQLProvider(
-    client : client ,
+    client : ValueNotifier(client,
+    ) ,
     child : MaterialApp(
         title: 'GraphQl-Flutter Test Drive',
         theme: ThemeData(
           useMaterial3: true,
           colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 3, 173, 69)),
         ),
-        home: const MyHomePage(),
+        home:  const MyHomePage(),
     ),
   );
   }
 }
 
 class MyHomePage extends StatefulWidget{
-  const MyHomePage ({
-       super.key,
+   const MyHomePage ({
+       super.key
   });
+
 
 
 @override
@@ -86,6 +85,13 @@ class MyHomePageState extends State<MyHomePage>{
               
     @override 
     Widget build (BuildContext context){
+           final httpLink = HttpLink('https://api.github.com/graphql', defaultHeaders: {
+      'Authorization': 'Bearer $myToken',
+    });
+    final client = GraphQLClient(
+        cache: GraphQLCache(),
+        link: httpLink,
+    );
       return Scaffold(
         appBar: AppBar(
           title: const Center(child: Text('widget.title!')),
@@ -107,7 +113,8 @@ class MyHomePageState extends State<MyHomePage>{
                  IconButton(onPressed: ()=> setState(() {
                    nameRepo = myController.text;
                  }), icon:const Icon(Icons.ads_click_sharp) ),
-                   PullRequeataWidget(nameRepo: nameRepo =="" ? "Students" : nameRepo)
+                   PullRequeataWidget(nameRepo: nameRepo.isEmpty ? "Students": nameRepo )
+                  //  PullRequeataClientWidget(client : client,name_repo: nameRepo =="" ? "Students" : nameRepo),
                  ]  
              )
              ,

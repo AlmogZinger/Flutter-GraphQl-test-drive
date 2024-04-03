@@ -1,3 +1,4 @@
+import 'allPullRequests.graphql.dart';
 import 'dart:async';
 import 'package:flutter/widgets.dart' as widgets;
 import 'package:gql/ast.dart';
@@ -7,7 +8,7 @@ import 'package:graphql_flutter/graphql_flutter.dart' as graphql_flutter;
 class Fragment$PRMessage {
   Fragment$PRMessage({
     this.author,
-    required this.body,
+    required this.bodyText,
     required this.$__typename,
   });
 
@@ -48,14 +49,14 @@ class Fragment$PRMessage {
 
       default:
         final l$author = json['author'];
-        final l$body = json['body'];
+        final l$bodyText = json['bodyText'];
         final l$$__typename = json['__typename'];
         return Fragment$PRMessage(
           author: l$author == null
               ? null
               : Fragment$PRMessage$author.fromJson(
                   (l$author as Map<String, dynamic>)),
-          body: (l$body as String),
+          bodyText: (l$bodyText as String),
           $__typename: (l$$__typename as String),
         );
     }
@@ -63,7 +64,7 @@ class Fragment$PRMessage {
 
   final Fragment$PRMessage$author? author;
 
-  final String body;
+  final String bodyText;
 
   final String $__typename;
 
@@ -71,8 +72,8 @@ class Fragment$PRMessage {
     final _resultData = <String, dynamic>{};
     final l$author = author;
     _resultData['author'] = l$author?.toJson();
-    final l$body = body;
-    _resultData['body'] = l$body;
+    final l$bodyText = bodyText;
+    _resultData['bodyText'] = l$bodyText;
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
     return _resultData;
@@ -81,11 +82,11 @@ class Fragment$PRMessage {
   @override
   int get hashCode {
     final l$author = author;
-    final l$body = body;
+    final l$bodyText = bodyText;
     final l$$__typename = $__typename;
     return Object.hashAll([
       l$author,
-      l$body,
+      l$bodyText,
       l$$__typename,
     ]);
   }
@@ -103,9 +104,9 @@ class Fragment$PRMessage {
     if (l$author != lOther$author) {
       return false;
     }
-    final l$body = body;
-    final lOther$body = other.body;
-    if (l$body != lOther$body) {
+    final l$bodyText = bodyText;
+    final lOther$bodyText = other.bodyText;
+    if (l$bodyText != lOther$bodyText) {
       return false;
     }
     final l$$__typename = $__typename;
@@ -297,7 +298,7 @@ abstract class CopyWith$Fragment$PRMessage<TRes> {
 
   TRes call({
     Fragment$PRMessage$author? author,
-    String? body,
+    String? bodyText,
     String? $__typename,
   });
   CopyWith$Fragment$PRMessage$author<TRes> get author;
@@ -318,16 +319,16 @@ class _CopyWithImpl$Fragment$PRMessage<TRes>
 
   TRes call({
     Object? author = _undefined,
-    Object? body = _undefined,
+    Object? bodyText = _undefined,
     Object? $__typename = _undefined,
   }) =>
       _then(Fragment$PRMessage(
         author: author == _undefined
             ? _instance.author
             : (author as Fragment$PRMessage$author?),
-        body: body == _undefined || body == null
-            ? _instance.body
-            : (body as String),
+        bodyText: bodyText == _undefined || bodyText == null
+            ? _instance.bodyText
+            : (bodyText as String),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
@@ -350,7 +351,7 @@ class _CopyWithStubImpl$Fragment$PRMessage<TRes>
 
   call({
     Fragment$PRMessage$author? author,
-    String? body,
+    String? bodyText,
     String? $__typename,
   }) =>
       _res;
@@ -391,7 +392,7 @@ const fragmentDefinitionPRMessage = FragmentDefinitionNode(
       ]),
     ),
     FieldNode(
-      name: NameNode(value: 'body'),
+      name: NameNode(value: 'bodyText'),
       alias: null,
       arguments: [],
       directives: [],
@@ -1307,28 +1308,28 @@ class _CopyWithStubImpl$Fragment$PRMessage$author$$User<TRes>
 class Fragment$PRMessage$$CommitComment implements Fragment$PRMessage {
   Fragment$PRMessage$$CommitComment({
     this.author,
-    required this.body,
+    required this.bodyText,
     this.$__typename = 'CommitComment',
   });
 
   factory Fragment$PRMessage$$CommitComment.fromJson(
       Map<String, dynamic> json) {
     final l$author = json['author'];
-    final l$body = json['body'];
+    final l$bodyText = json['bodyText'];
     final l$$__typename = json['__typename'];
     return Fragment$PRMessage$$CommitComment(
       author: l$author == null
           ? null
           : Fragment$PRMessage$$CommitComment$author.fromJson(
               (l$author as Map<String, dynamic>)),
-      body: (l$body as String),
+      bodyText: (l$bodyText as String),
       $__typename: (l$$__typename as String),
     );
   }
 
   final Fragment$PRMessage$$CommitComment$author? author;
 
-  final String body;
+  final String bodyText;
 
   final String $__typename;
 
@@ -1336,8 +1337,8 @@ class Fragment$PRMessage$$CommitComment implements Fragment$PRMessage {
     final _resultData = <String, dynamic>{};
     final l$author = author;
     _resultData['author'] = l$author?.toJson();
-    final l$body = body;
-    _resultData['body'] = l$body;
+    final l$bodyText = bodyText;
+    _resultData['bodyText'] = l$bodyText;
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
     return _resultData;
@@ -1346,11 +1347,11 @@ class Fragment$PRMessage$$CommitComment implements Fragment$PRMessage {
   @override
   int get hashCode {
     final l$author = author;
-    final l$body = body;
+    final l$bodyText = bodyText;
     final l$$__typename = $__typename;
     return Object.hashAll([
       l$author,
-      l$body,
+      l$bodyText,
       l$$__typename,
     ]);
   }
@@ -1369,9 +1370,9 @@ class Fragment$PRMessage$$CommitComment implements Fragment$PRMessage {
     if (l$author != lOther$author) {
       return false;
     }
-    final l$body = body;
-    final lOther$body = other.body;
-    if (l$body != lOther$body) {
+    final l$bodyText = bodyText;
+    final lOther$bodyText = other.bodyText;
+    if (l$bodyText != lOther$bodyText) {
       return false;
     }
     final l$$__typename = $__typename;
@@ -1403,7 +1404,7 @@ abstract class CopyWith$Fragment$PRMessage$$CommitComment<TRes> {
 
   TRes call({
     Fragment$PRMessage$$CommitComment$author? author,
-    String? body,
+    String? bodyText,
     String? $__typename,
   });
   CopyWith$Fragment$PRMessage$$CommitComment$author<TRes> get author;
@@ -1424,16 +1425,16 @@ class _CopyWithImpl$Fragment$PRMessage$$CommitComment<TRes>
 
   TRes call({
     Object? author = _undefined,
-    Object? body = _undefined,
+    Object? bodyText = _undefined,
     Object? $__typename = _undefined,
   }) =>
       _then(Fragment$PRMessage$$CommitComment(
         author: author == _undefined
             ? _instance.author
             : (author as Fragment$PRMessage$$CommitComment$author?),
-        body: body == _undefined || body == null
-            ? _instance.body
-            : (body as String),
+        bodyText: bodyText == _undefined || bodyText == null
+            ? _instance.bodyText
+            : (bodyText as String),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
@@ -1457,7 +1458,7 @@ class _CopyWithStubImpl$Fragment$PRMessage$$CommitComment<TRes>
 
   call({
     Fragment$PRMessage$$CommitComment$author? author,
-    String? body,
+    String? bodyText,
     String? $__typename,
   }) =>
       _res;
@@ -2381,27 +2382,27 @@ class _CopyWithStubImpl$Fragment$PRMessage$$CommitComment$author$$User<TRes>
 class Fragment$PRMessage$$Discussion implements Fragment$PRMessage {
   Fragment$PRMessage$$Discussion({
     this.author,
-    required this.body,
+    required this.bodyText,
     this.$__typename = 'Discussion',
   });
 
   factory Fragment$PRMessage$$Discussion.fromJson(Map<String, dynamic> json) {
     final l$author = json['author'];
-    final l$body = json['body'];
+    final l$bodyText = json['bodyText'];
     final l$$__typename = json['__typename'];
     return Fragment$PRMessage$$Discussion(
       author: l$author == null
           ? null
           : Fragment$PRMessage$$Discussion$author.fromJson(
               (l$author as Map<String, dynamic>)),
-      body: (l$body as String),
+      bodyText: (l$bodyText as String),
       $__typename: (l$$__typename as String),
     );
   }
 
   final Fragment$PRMessage$$Discussion$author? author;
 
-  final String body;
+  final String bodyText;
 
   final String $__typename;
 
@@ -2409,8 +2410,8 @@ class Fragment$PRMessage$$Discussion implements Fragment$PRMessage {
     final _resultData = <String, dynamic>{};
     final l$author = author;
     _resultData['author'] = l$author?.toJson();
-    final l$body = body;
-    _resultData['body'] = l$body;
+    final l$bodyText = bodyText;
+    _resultData['bodyText'] = l$bodyText;
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
     return _resultData;
@@ -2419,11 +2420,11 @@ class Fragment$PRMessage$$Discussion implements Fragment$PRMessage {
   @override
   int get hashCode {
     final l$author = author;
-    final l$body = body;
+    final l$bodyText = bodyText;
     final l$$__typename = $__typename;
     return Object.hashAll([
       l$author,
-      l$body,
+      l$bodyText,
       l$$__typename,
     ]);
   }
@@ -2442,9 +2443,9 @@ class Fragment$PRMessage$$Discussion implements Fragment$PRMessage {
     if (l$author != lOther$author) {
       return false;
     }
-    final l$body = body;
-    final lOther$body = other.body;
-    if (l$body != lOther$body) {
+    final l$bodyText = bodyText;
+    final lOther$bodyText = other.bodyText;
+    if (l$bodyText != lOther$bodyText) {
       return false;
     }
     final l$$__typename = $__typename;
@@ -2476,7 +2477,7 @@ abstract class CopyWith$Fragment$PRMessage$$Discussion<TRes> {
 
   TRes call({
     Fragment$PRMessage$$Discussion$author? author,
-    String? body,
+    String? bodyText,
     String? $__typename,
   });
   CopyWith$Fragment$PRMessage$$Discussion$author<TRes> get author;
@@ -2497,16 +2498,16 @@ class _CopyWithImpl$Fragment$PRMessage$$Discussion<TRes>
 
   TRes call({
     Object? author = _undefined,
-    Object? body = _undefined,
+    Object? bodyText = _undefined,
     Object? $__typename = _undefined,
   }) =>
       _then(Fragment$PRMessage$$Discussion(
         author: author == _undefined
             ? _instance.author
             : (author as Fragment$PRMessage$$Discussion$author?),
-        body: body == _undefined || body == null
-            ? _instance.body
-            : (body as String),
+        bodyText: bodyText == _undefined || bodyText == null
+            ? _instance.bodyText
+            : (bodyText as String),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
@@ -2529,7 +2530,7 @@ class _CopyWithStubImpl$Fragment$PRMessage$$Discussion<TRes>
 
   call({
     Fragment$PRMessage$$Discussion$author? author,
-    String? body,
+    String? bodyText,
     String? $__typename,
   }) =>
       _res;
@@ -3440,28 +3441,28 @@ class _CopyWithStubImpl$Fragment$PRMessage$$Discussion$author$$User<TRes>
 class Fragment$PRMessage$$DiscussionComment implements Fragment$PRMessage {
   Fragment$PRMessage$$DiscussionComment({
     this.author,
-    required this.body,
+    required this.bodyText,
     this.$__typename = 'DiscussionComment',
   });
 
   factory Fragment$PRMessage$$DiscussionComment.fromJson(
       Map<String, dynamic> json) {
     final l$author = json['author'];
-    final l$body = json['body'];
+    final l$bodyText = json['bodyText'];
     final l$$__typename = json['__typename'];
     return Fragment$PRMessage$$DiscussionComment(
       author: l$author == null
           ? null
           : Fragment$PRMessage$$DiscussionComment$author.fromJson(
               (l$author as Map<String, dynamic>)),
-      body: (l$body as String),
+      bodyText: (l$bodyText as String),
       $__typename: (l$$__typename as String),
     );
   }
 
   final Fragment$PRMessage$$DiscussionComment$author? author;
 
-  final String body;
+  final String bodyText;
 
   final String $__typename;
 
@@ -3469,8 +3470,8 @@ class Fragment$PRMessage$$DiscussionComment implements Fragment$PRMessage {
     final _resultData = <String, dynamic>{};
     final l$author = author;
     _resultData['author'] = l$author?.toJson();
-    final l$body = body;
-    _resultData['body'] = l$body;
+    final l$bodyText = bodyText;
+    _resultData['bodyText'] = l$bodyText;
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
     return _resultData;
@@ -3479,11 +3480,11 @@ class Fragment$PRMessage$$DiscussionComment implements Fragment$PRMessage {
   @override
   int get hashCode {
     final l$author = author;
-    final l$body = body;
+    final l$bodyText = bodyText;
     final l$$__typename = $__typename;
     return Object.hashAll([
       l$author,
-      l$body,
+      l$bodyText,
       l$$__typename,
     ]);
   }
@@ -3502,9 +3503,9 @@ class Fragment$PRMessage$$DiscussionComment implements Fragment$PRMessage {
     if (l$author != lOther$author) {
       return false;
     }
-    final l$body = body;
-    final lOther$body = other.body;
-    if (l$body != lOther$body) {
+    final l$bodyText = bodyText;
+    final lOther$bodyText = other.bodyText;
+    if (l$bodyText != lOther$bodyText) {
       return false;
     }
     final l$$__typename = $__typename;
@@ -3537,7 +3538,7 @@ abstract class CopyWith$Fragment$PRMessage$$DiscussionComment<TRes> {
 
   TRes call({
     Fragment$PRMessage$$DiscussionComment$author? author,
-    String? body,
+    String? bodyText,
     String? $__typename,
   });
   CopyWith$Fragment$PRMessage$$DiscussionComment$author<TRes> get author;
@@ -3558,16 +3559,16 @@ class _CopyWithImpl$Fragment$PRMessage$$DiscussionComment<TRes>
 
   TRes call({
     Object? author = _undefined,
-    Object? body = _undefined,
+    Object? bodyText = _undefined,
     Object? $__typename = _undefined,
   }) =>
       _then(Fragment$PRMessage$$DiscussionComment(
         author: author == _undefined
             ? _instance.author
             : (author as Fragment$PRMessage$$DiscussionComment$author?),
-        body: body == _undefined || body == null
-            ? _instance.body
-            : (body as String),
+        bodyText: bodyText == _undefined || bodyText == null
+            ? _instance.bodyText
+            : (bodyText as String),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
@@ -3591,7 +3592,7 @@ class _CopyWithStubImpl$Fragment$PRMessage$$DiscussionComment<TRes>
 
   call({
     Fragment$PRMessage$$DiscussionComment$author? author,
-    String? body,
+    String? bodyText,
     String? $__typename,
   }) =>
       _res;
@@ -4539,27 +4540,27 @@ class _CopyWithStubImpl$Fragment$PRMessage$$DiscussionComment$author$$User<TRes>
 class Fragment$PRMessage$$GistComment implements Fragment$PRMessage {
   Fragment$PRMessage$$GistComment({
     this.author,
-    required this.body,
+    required this.bodyText,
     this.$__typename = 'GistComment',
   });
 
   factory Fragment$PRMessage$$GistComment.fromJson(Map<String, dynamic> json) {
     final l$author = json['author'];
-    final l$body = json['body'];
+    final l$bodyText = json['bodyText'];
     final l$$__typename = json['__typename'];
     return Fragment$PRMessage$$GistComment(
       author: l$author == null
           ? null
           : Fragment$PRMessage$$GistComment$author.fromJson(
               (l$author as Map<String, dynamic>)),
-      body: (l$body as String),
+      bodyText: (l$bodyText as String),
       $__typename: (l$$__typename as String),
     );
   }
 
   final Fragment$PRMessage$$GistComment$author? author;
 
-  final String body;
+  final String bodyText;
 
   final String $__typename;
 
@@ -4567,8 +4568,8 @@ class Fragment$PRMessage$$GistComment implements Fragment$PRMessage {
     final _resultData = <String, dynamic>{};
     final l$author = author;
     _resultData['author'] = l$author?.toJson();
-    final l$body = body;
-    _resultData['body'] = l$body;
+    final l$bodyText = bodyText;
+    _resultData['bodyText'] = l$bodyText;
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
     return _resultData;
@@ -4577,11 +4578,11 @@ class Fragment$PRMessage$$GistComment implements Fragment$PRMessage {
   @override
   int get hashCode {
     final l$author = author;
-    final l$body = body;
+    final l$bodyText = bodyText;
     final l$$__typename = $__typename;
     return Object.hashAll([
       l$author,
-      l$body,
+      l$bodyText,
       l$$__typename,
     ]);
   }
@@ -4600,9 +4601,9 @@ class Fragment$PRMessage$$GistComment implements Fragment$PRMessage {
     if (l$author != lOther$author) {
       return false;
     }
-    final l$body = body;
-    final lOther$body = other.body;
-    if (l$body != lOther$body) {
+    final l$bodyText = bodyText;
+    final lOther$bodyText = other.bodyText;
+    if (l$bodyText != lOther$bodyText) {
       return false;
     }
     final l$$__typename = $__typename;
@@ -4634,7 +4635,7 @@ abstract class CopyWith$Fragment$PRMessage$$GistComment<TRes> {
 
   TRes call({
     Fragment$PRMessage$$GistComment$author? author,
-    String? body,
+    String? bodyText,
     String? $__typename,
   });
   CopyWith$Fragment$PRMessage$$GistComment$author<TRes> get author;
@@ -4655,16 +4656,16 @@ class _CopyWithImpl$Fragment$PRMessage$$GistComment<TRes>
 
   TRes call({
     Object? author = _undefined,
-    Object? body = _undefined,
+    Object? bodyText = _undefined,
     Object? $__typename = _undefined,
   }) =>
       _then(Fragment$PRMessage$$GistComment(
         author: author == _undefined
             ? _instance.author
             : (author as Fragment$PRMessage$$GistComment$author?),
-        body: body == _undefined || body == null
-            ? _instance.body
-            : (body as String),
+        bodyText: bodyText == _undefined || bodyText == null
+            ? _instance.bodyText
+            : (bodyText as String),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
@@ -4687,7 +4688,7 @@ class _CopyWithStubImpl$Fragment$PRMessage$$GistComment<TRes>
 
   call({
     Fragment$PRMessage$$GistComment$author? author,
-    String? body,
+    String? bodyText,
     String? $__typename,
   }) =>
       _res;
@@ -5603,27 +5604,27 @@ class _CopyWithStubImpl$Fragment$PRMessage$$GistComment$author$$User<TRes>
 class Fragment$PRMessage$$Issue implements Fragment$PRMessage {
   Fragment$PRMessage$$Issue({
     this.author,
-    required this.body,
+    required this.bodyText,
     this.$__typename = 'Issue',
   });
 
   factory Fragment$PRMessage$$Issue.fromJson(Map<String, dynamic> json) {
     final l$author = json['author'];
-    final l$body = json['body'];
+    final l$bodyText = json['bodyText'];
     final l$$__typename = json['__typename'];
     return Fragment$PRMessage$$Issue(
       author: l$author == null
           ? null
           : Fragment$PRMessage$$Issue$author.fromJson(
               (l$author as Map<String, dynamic>)),
-      body: (l$body as String),
+      bodyText: (l$bodyText as String),
       $__typename: (l$$__typename as String),
     );
   }
 
   final Fragment$PRMessage$$Issue$author? author;
 
-  final String body;
+  final String bodyText;
 
   final String $__typename;
 
@@ -5631,8 +5632,8 @@ class Fragment$PRMessage$$Issue implements Fragment$PRMessage {
     final _resultData = <String, dynamic>{};
     final l$author = author;
     _resultData['author'] = l$author?.toJson();
-    final l$body = body;
-    _resultData['body'] = l$body;
+    final l$bodyText = bodyText;
+    _resultData['bodyText'] = l$bodyText;
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
     return _resultData;
@@ -5641,11 +5642,11 @@ class Fragment$PRMessage$$Issue implements Fragment$PRMessage {
   @override
   int get hashCode {
     final l$author = author;
-    final l$body = body;
+    final l$bodyText = bodyText;
     final l$$__typename = $__typename;
     return Object.hashAll([
       l$author,
-      l$body,
+      l$bodyText,
       l$$__typename,
     ]);
   }
@@ -5664,9 +5665,9 @@ class Fragment$PRMessage$$Issue implements Fragment$PRMessage {
     if (l$author != lOther$author) {
       return false;
     }
-    final l$body = body;
-    final lOther$body = other.body;
-    if (l$body != lOther$body) {
+    final l$bodyText = bodyText;
+    final lOther$bodyText = other.bodyText;
+    if (l$bodyText != lOther$bodyText) {
       return false;
     }
     final l$$__typename = $__typename;
@@ -5698,7 +5699,7 @@ abstract class CopyWith$Fragment$PRMessage$$Issue<TRes> {
 
   TRes call({
     Fragment$PRMessage$$Issue$author? author,
-    String? body,
+    String? bodyText,
     String? $__typename,
   });
   CopyWith$Fragment$PRMessage$$Issue$author<TRes> get author;
@@ -5719,16 +5720,16 @@ class _CopyWithImpl$Fragment$PRMessage$$Issue<TRes>
 
   TRes call({
     Object? author = _undefined,
-    Object? body = _undefined,
+    Object? bodyText = _undefined,
     Object? $__typename = _undefined,
   }) =>
       _then(Fragment$PRMessage$$Issue(
         author: author == _undefined
             ? _instance.author
             : (author as Fragment$PRMessage$$Issue$author?),
-        body: body == _undefined || body == null
-            ? _instance.body
-            : (body as String),
+        bodyText: bodyText == _undefined || bodyText == null
+            ? _instance.bodyText
+            : (bodyText as String),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
@@ -5751,7 +5752,7 @@ class _CopyWithStubImpl$Fragment$PRMessage$$Issue<TRes>
 
   call({
     Fragment$PRMessage$$Issue$author? author,
-    String? body,
+    String? bodyText,
     String? $__typename,
   }) =>
       _res;
@@ -6642,27 +6643,27 @@ class _CopyWithStubImpl$Fragment$PRMessage$$Issue$author$$User<TRes>
 class Fragment$PRMessage$$IssueComment implements Fragment$PRMessage {
   Fragment$PRMessage$$IssueComment({
     this.author,
-    required this.body,
+    required this.bodyText,
     this.$__typename = 'IssueComment',
   });
 
   factory Fragment$PRMessage$$IssueComment.fromJson(Map<String, dynamic> json) {
     final l$author = json['author'];
-    final l$body = json['body'];
+    final l$bodyText = json['bodyText'];
     final l$$__typename = json['__typename'];
     return Fragment$PRMessage$$IssueComment(
       author: l$author == null
           ? null
           : Fragment$PRMessage$$IssueComment$author.fromJson(
               (l$author as Map<String, dynamic>)),
-      body: (l$body as String),
+      bodyText: (l$bodyText as String),
       $__typename: (l$$__typename as String),
     );
   }
 
   final Fragment$PRMessage$$IssueComment$author? author;
 
-  final String body;
+  final String bodyText;
 
   final String $__typename;
 
@@ -6670,8 +6671,8 @@ class Fragment$PRMessage$$IssueComment implements Fragment$PRMessage {
     final _resultData = <String, dynamic>{};
     final l$author = author;
     _resultData['author'] = l$author?.toJson();
-    final l$body = body;
-    _resultData['body'] = l$body;
+    final l$bodyText = bodyText;
+    _resultData['bodyText'] = l$bodyText;
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
     return _resultData;
@@ -6680,11 +6681,11 @@ class Fragment$PRMessage$$IssueComment implements Fragment$PRMessage {
   @override
   int get hashCode {
     final l$author = author;
-    final l$body = body;
+    final l$bodyText = bodyText;
     final l$$__typename = $__typename;
     return Object.hashAll([
       l$author,
-      l$body,
+      l$bodyText,
       l$$__typename,
     ]);
   }
@@ -6703,9 +6704,9 @@ class Fragment$PRMessage$$IssueComment implements Fragment$PRMessage {
     if (l$author != lOther$author) {
       return false;
     }
-    final l$body = body;
-    final lOther$body = other.body;
-    if (l$body != lOther$body) {
+    final l$bodyText = bodyText;
+    final lOther$bodyText = other.bodyText;
+    if (l$bodyText != lOther$bodyText) {
       return false;
     }
     final l$$__typename = $__typename;
@@ -6737,7 +6738,7 @@ abstract class CopyWith$Fragment$PRMessage$$IssueComment<TRes> {
 
   TRes call({
     Fragment$PRMessage$$IssueComment$author? author,
-    String? body,
+    String? bodyText,
     String? $__typename,
   });
   CopyWith$Fragment$PRMessage$$IssueComment$author<TRes> get author;
@@ -6758,16 +6759,16 @@ class _CopyWithImpl$Fragment$PRMessage$$IssueComment<TRes>
 
   TRes call({
     Object? author = _undefined,
-    Object? body = _undefined,
+    Object? bodyText = _undefined,
     Object? $__typename = _undefined,
   }) =>
       _then(Fragment$PRMessage$$IssueComment(
         author: author == _undefined
             ? _instance.author
             : (author as Fragment$PRMessage$$IssueComment$author?),
-        body: body == _undefined || body == null
-            ? _instance.body
-            : (body as String),
+        bodyText: bodyText == _undefined || bodyText == null
+            ? _instance.bodyText
+            : (bodyText as String),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
@@ -6791,7 +6792,7 @@ class _CopyWithStubImpl$Fragment$PRMessage$$IssueComment<TRes>
 
   call({
     Fragment$PRMessage$$IssueComment$author? author,
-    String? body,
+    String? bodyText,
     String? $__typename,
   }) =>
       _res;
@@ -7711,27 +7712,27 @@ class _CopyWithStubImpl$Fragment$PRMessage$$IssueComment$author$$User<TRes>
 class Fragment$PRMessage$$PullRequest implements Fragment$PRMessage {
   Fragment$PRMessage$$PullRequest({
     this.author,
-    required this.body,
+    required this.bodyText,
     this.$__typename = 'PullRequest',
   });
 
   factory Fragment$PRMessage$$PullRequest.fromJson(Map<String, dynamic> json) {
     final l$author = json['author'];
-    final l$body = json['body'];
+    final l$bodyText = json['bodyText'];
     final l$$__typename = json['__typename'];
     return Fragment$PRMessage$$PullRequest(
       author: l$author == null
           ? null
           : Fragment$PRMessage$$PullRequest$author.fromJson(
               (l$author as Map<String, dynamic>)),
-      body: (l$body as String),
+      bodyText: (l$bodyText as String),
       $__typename: (l$$__typename as String),
     );
   }
 
   final Fragment$PRMessage$$PullRequest$author? author;
 
-  final String body;
+  final String bodyText;
 
   final String $__typename;
 
@@ -7739,8 +7740,8 @@ class Fragment$PRMessage$$PullRequest implements Fragment$PRMessage {
     final _resultData = <String, dynamic>{};
     final l$author = author;
     _resultData['author'] = l$author?.toJson();
-    final l$body = body;
-    _resultData['body'] = l$body;
+    final l$bodyText = bodyText;
+    _resultData['bodyText'] = l$bodyText;
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
     return _resultData;
@@ -7749,11 +7750,11 @@ class Fragment$PRMessage$$PullRequest implements Fragment$PRMessage {
   @override
   int get hashCode {
     final l$author = author;
-    final l$body = body;
+    final l$bodyText = bodyText;
     final l$$__typename = $__typename;
     return Object.hashAll([
       l$author,
-      l$body,
+      l$bodyText,
       l$$__typename,
     ]);
   }
@@ -7772,9 +7773,9 @@ class Fragment$PRMessage$$PullRequest implements Fragment$PRMessage {
     if (l$author != lOther$author) {
       return false;
     }
-    final l$body = body;
-    final lOther$body = other.body;
-    if (l$body != lOther$body) {
+    final l$bodyText = bodyText;
+    final lOther$bodyText = other.bodyText;
+    if (l$bodyText != lOther$bodyText) {
       return false;
     }
     final l$$__typename = $__typename;
@@ -7806,7 +7807,7 @@ abstract class CopyWith$Fragment$PRMessage$$PullRequest<TRes> {
 
   TRes call({
     Fragment$PRMessage$$PullRequest$author? author,
-    String? body,
+    String? bodyText,
     String? $__typename,
   });
   CopyWith$Fragment$PRMessage$$PullRequest$author<TRes> get author;
@@ -7827,16 +7828,16 @@ class _CopyWithImpl$Fragment$PRMessage$$PullRequest<TRes>
 
   TRes call({
     Object? author = _undefined,
-    Object? body = _undefined,
+    Object? bodyText = _undefined,
     Object? $__typename = _undefined,
   }) =>
       _then(Fragment$PRMessage$$PullRequest(
         author: author == _undefined
             ? _instance.author
             : (author as Fragment$PRMessage$$PullRequest$author?),
-        body: body == _undefined || body == null
-            ? _instance.body
-            : (body as String),
+        bodyText: bodyText == _undefined || bodyText == null
+            ? _instance.bodyText
+            : (bodyText as String),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
@@ -7859,7 +7860,7 @@ class _CopyWithStubImpl$Fragment$PRMessage$$PullRequest<TRes>
 
   call({
     Fragment$PRMessage$$PullRequest$author? author,
-    String? body,
+    String? bodyText,
     String? $__typename,
   }) =>
       _res;
@@ -8775,28 +8776,28 @@ class _CopyWithStubImpl$Fragment$PRMessage$$PullRequest$author$$User<TRes>
 class Fragment$PRMessage$$PullRequestReview implements Fragment$PRMessage {
   Fragment$PRMessage$$PullRequestReview({
     this.author,
-    required this.body,
+    required this.bodyText,
     this.$__typename = 'PullRequestReview',
   });
 
   factory Fragment$PRMessage$$PullRequestReview.fromJson(
       Map<String, dynamic> json) {
     final l$author = json['author'];
-    final l$body = json['body'];
+    final l$bodyText = json['bodyText'];
     final l$$__typename = json['__typename'];
     return Fragment$PRMessage$$PullRequestReview(
       author: l$author == null
           ? null
           : Fragment$PRMessage$$PullRequestReview$author.fromJson(
               (l$author as Map<String, dynamic>)),
-      body: (l$body as String),
+      bodyText: (l$bodyText as String),
       $__typename: (l$$__typename as String),
     );
   }
 
   final Fragment$PRMessage$$PullRequestReview$author? author;
 
-  final String body;
+  final String bodyText;
 
   final String $__typename;
 
@@ -8804,8 +8805,8 @@ class Fragment$PRMessage$$PullRequestReview implements Fragment$PRMessage {
     final _resultData = <String, dynamic>{};
     final l$author = author;
     _resultData['author'] = l$author?.toJson();
-    final l$body = body;
-    _resultData['body'] = l$body;
+    final l$bodyText = bodyText;
+    _resultData['bodyText'] = l$bodyText;
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
     return _resultData;
@@ -8814,11 +8815,11 @@ class Fragment$PRMessage$$PullRequestReview implements Fragment$PRMessage {
   @override
   int get hashCode {
     final l$author = author;
-    final l$body = body;
+    final l$bodyText = bodyText;
     final l$$__typename = $__typename;
     return Object.hashAll([
       l$author,
-      l$body,
+      l$bodyText,
       l$$__typename,
     ]);
   }
@@ -8837,9 +8838,9 @@ class Fragment$PRMessage$$PullRequestReview implements Fragment$PRMessage {
     if (l$author != lOther$author) {
       return false;
     }
-    final l$body = body;
-    final lOther$body = other.body;
-    if (l$body != lOther$body) {
+    final l$bodyText = bodyText;
+    final lOther$bodyText = other.bodyText;
+    if (l$bodyText != lOther$bodyText) {
       return false;
     }
     final l$$__typename = $__typename;
@@ -8872,7 +8873,7 @@ abstract class CopyWith$Fragment$PRMessage$$PullRequestReview<TRes> {
 
   TRes call({
     Fragment$PRMessage$$PullRequestReview$author? author,
-    String? body,
+    String? bodyText,
     String? $__typename,
   });
   CopyWith$Fragment$PRMessage$$PullRequestReview$author<TRes> get author;
@@ -8893,16 +8894,16 @@ class _CopyWithImpl$Fragment$PRMessage$$PullRequestReview<TRes>
 
   TRes call({
     Object? author = _undefined,
-    Object? body = _undefined,
+    Object? bodyText = _undefined,
     Object? $__typename = _undefined,
   }) =>
       _then(Fragment$PRMessage$$PullRequestReview(
         author: author == _undefined
             ? _instance.author
             : (author as Fragment$PRMessage$$PullRequestReview$author?),
-        body: body == _undefined || body == null
-            ? _instance.body
-            : (body as String),
+        bodyText: bodyText == _undefined || bodyText == null
+            ? _instance.bodyText
+            : (bodyText as String),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
@@ -8926,7 +8927,7 @@ class _CopyWithStubImpl$Fragment$PRMessage$$PullRequestReview<TRes>
 
   call({
     Fragment$PRMessage$$PullRequestReview$author? author,
-    String? body,
+    String? bodyText,
     String? $__typename,
   }) =>
       _res;
@@ -9875,28 +9876,28 @@ class Fragment$PRMessage$$PullRequestReviewComment
     implements Fragment$PRMessage {
   Fragment$PRMessage$$PullRequestReviewComment({
     this.author,
-    required this.body,
+    required this.bodyText,
     this.$__typename = 'PullRequestReviewComment',
   });
 
   factory Fragment$PRMessage$$PullRequestReviewComment.fromJson(
       Map<String, dynamic> json) {
     final l$author = json['author'];
-    final l$body = json['body'];
+    final l$bodyText = json['bodyText'];
     final l$$__typename = json['__typename'];
     return Fragment$PRMessage$$PullRequestReviewComment(
       author: l$author == null
           ? null
           : Fragment$PRMessage$$PullRequestReviewComment$author.fromJson(
               (l$author as Map<String, dynamic>)),
-      body: (l$body as String),
+      bodyText: (l$bodyText as String),
       $__typename: (l$$__typename as String),
     );
   }
 
   final Fragment$PRMessage$$PullRequestReviewComment$author? author;
 
-  final String body;
+  final String bodyText;
 
   final String $__typename;
 
@@ -9904,8 +9905,8 @@ class Fragment$PRMessage$$PullRequestReviewComment
     final _resultData = <String, dynamic>{};
     final l$author = author;
     _resultData['author'] = l$author?.toJson();
-    final l$body = body;
-    _resultData['body'] = l$body;
+    final l$bodyText = bodyText;
+    _resultData['bodyText'] = l$bodyText;
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
     return _resultData;
@@ -9914,11 +9915,11 @@ class Fragment$PRMessage$$PullRequestReviewComment
   @override
   int get hashCode {
     final l$author = author;
-    final l$body = body;
+    final l$bodyText = bodyText;
     final l$$__typename = $__typename;
     return Object.hashAll([
       l$author,
-      l$body,
+      l$bodyText,
       l$$__typename,
     ]);
   }
@@ -9937,9 +9938,9 @@ class Fragment$PRMessage$$PullRequestReviewComment
     if (l$author != lOther$author) {
       return false;
     }
-    final l$body = body;
-    final lOther$body = other.body;
-    if (l$body != lOther$body) {
+    final l$bodyText = bodyText;
+    final lOther$bodyText = other.bodyText;
+    if (l$bodyText != lOther$bodyText) {
       return false;
     }
     final l$$__typename = $__typename;
@@ -9972,7 +9973,7 @@ abstract class CopyWith$Fragment$PRMessage$$PullRequestReviewComment<TRes> {
 
   TRes call({
     Fragment$PRMessage$$PullRequestReviewComment$author? author,
-    String? body,
+    String? bodyText,
     String? $__typename,
   });
   CopyWith$Fragment$PRMessage$$PullRequestReviewComment$author<TRes> get author;
@@ -9993,16 +9994,16 @@ class _CopyWithImpl$Fragment$PRMessage$$PullRequestReviewComment<TRes>
 
   TRes call({
     Object? author = _undefined,
-    Object? body = _undefined,
+    Object? bodyText = _undefined,
     Object? $__typename = _undefined,
   }) =>
       _then(Fragment$PRMessage$$PullRequestReviewComment(
         author: author == _undefined
             ? _instance.author
             : (author as Fragment$PRMessage$$PullRequestReviewComment$author?),
-        body: body == _undefined || body == null
-            ? _instance.body
-            : (body as String),
+        bodyText: bodyText == _undefined || bodyText == null
+            ? _instance.bodyText
+            : (bodyText as String),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
@@ -10027,7 +10028,7 @@ class _CopyWithStubImpl$Fragment$PRMessage$$PullRequestReviewComment<TRes>
 
   call({
     Fragment$PRMessage$$PullRequestReviewComment$author? author,
-    String? body,
+    String? bodyText,
     String? $__typename,
   }) =>
       _res;
@@ -11015,28 +11016,28 @@ class _CopyWithStubImpl$Fragment$PRMessage$$PullRequestReviewComment$author$$Use
 class Fragment$PRMessage$$TeamDiscussion implements Fragment$PRMessage {
   Fragment$PRMessage$$TeamDiscussion({
     this.author,
-    required this.body,
+    required this.bodyText,
     this.$__typename = 'TeamDiscussion',
   });
 
   factory Fragment$PRMessage$$TeamDiscussion.fromJson(
       Map<String, dynamic> json) {
     final l$author = json['author'];
-    final l$body = json['body'];
+    final l$bodyText = json['bodyText'];
     final l$$__typename = json['__typename'];
     return Fragment$PRMessage$$TeamDiscussion(
       author: l$author == null
           ? null
           : Fragment$PRMessage$$TeamDiscussion$author.fromJson(
               (l$author as Map<String, dynamic>)),
-      body: (l$body as String),
+      bodyText: (l$bodyText as String),
       $__typename: (l$$__typename as String),
     );
   }
 
   final Fragment$PRMessage$$TeamDiscussion$author? author;
 
-  final String body;
+  final String bodyText;
 
   final String $__typename;
 
@@ -11044,8 +11045,8 @@ class Fragment$PRMessage$$TeamDiscussion implements Fragment$PRMessage {
     final _resultData = <String, dynamic>{};
     final l$author = author;
     _resultData['author'] = l$author?.toJson();
-    final l$body = body;
-    _resultData['body'] = l$body;
+    final l$bodyText = bodyText;
+    _resultData['bodyText'] = l$bodyText;
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
     return _resultData;
@@ -11054,11 +11055,11 @@ class Fragment$PRMessage$$TeamDiscussion implements Fragment$PRMessage {
   @override
   int get hashCode {
     final l$author = author;
-    final l$body = body;
+    final l$bodyText = bodyText;
     final l$$__typename = $__typename;
     return Object.hashAll([
       l$author,
-      l$body,
+      l$bodyText,
       l$$__typename,
     ]);
   }
@@ -11077,9 +11078,9 @@ class Fragment$PRMessage$$TeamDiscussion implements Fragment$PRMessage {
     if (l$author != lOther$author) {
       return false;
     }
-    final l$body = body;
-    final lOther$body = other.body;
-    if (l$body != lOther$body) {
+    final l$bodyText = bodyText;
+    final lOther$bodyText = other.bodyText;
+    if (l$bodyText != lOther$bodyText) {
       return false;
     }
     final l$$__typename = $__typename;
@@ -11112,7 +11113,7 @@ abstract class CopyWith$Fragment$PRMessage$$TeamDiscussion<TRes> {
 
   TRes call({
     Fragment$PRMessage$$TeamDiscussion$author? author,
-    String? body,
+    String? bodyText,
     String? $__typename,
   });
   CopyWith$Fragment$PRMessage$$TeamDiscussion$author<TRes> get author;
@@ -11133,16 +11134,16 @@ class _CopyWithImpl$Fragment$PRMessage$$TeamDiscussion<TRes>
 
   TRes call({
     Object? author = _undefined,
-    Object? body = _undefined,
+    Object? bodyText = _undefined,
     Object? $__typename = _undefined,
   }) =>
       _then(Fragment$PRMessage$$TeamDiscussion(
         author: author == _undefined
             ? _instance.author
             : (author as Fragment$PRMessage$$TeamDiscussion$author?),
-        body: body == _undefined || body == null
-            ? _instance.body
-            : (body as String),
+        bodyText: bodyText == _undefined || bodyText == null
+            ? _instance.bodyText
+            : (bodyText as String),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
@@ -11166,7 +11167,7 @@ class _CopyWithStubImpl$Fragment$PRMessage$$TeamDiscussion<TRes>
 
   call({
     Fragment$PRMessage$$TeamDiscussion$author? author,
-    String? body,
+    String? bodyText,
     String? $__typename,
   }) =>
       _res;
@@ -12093,28 +12094,28 @@ class _CopyWithStubImpl$Fragment$PRMessage$$TeamDiscussion$author$$User<TRes>
 class Fragment$PRMessage$$TeamDiscussionComment implements Fragment$PRMessage {
   Fragment$PRMessage$$TeamDiscussionComment({
     this.author,
-    required this.body,
+    required this.bodyText,
     this.$__typename = 'TeamDiscussionComment',
   });
 
   factory Fragment$PRMessage$$TeamDiscussionComment.fromJson(
       Map<String, dynamic> json) {
     final l$author = json['author'];
-    final l$body = json['body'];
+    final l$bodyText = json['bodyText'];
     final l$$__typename = json['__typename'];
     return Fragment$PRMessage$$TeamDiscussionComment(
       author: l$author == null
           ? null
           : Fragment$PRMessage$$TeamDiscussionComment$author.fromJson(
               (l$author as Map<String, dynamic>)),
-      body: (l$body as String),
+      bodyText: (l$bodyText as String),
       $__typename: (l$$__typename as String),
     );
   }
 
   final Fragment$PRMessage$$TeamDiscussionComment$author? author;
 
-  final String body;
+  final String bodyText;
 
   final String $__typename;
 
@@ -12122,8 +12123,8 @@ class Fragment$PRMessage$$TeamDiscussionComment implements Fragment$PRMessage {
     final _resultData = <String, dynamic>{};
     final l$author = author;
     _resultData['author'] = l$author?.toJson();
-    final l$body = body;
-    _resultData['body'] = l$body;
+    final l$bodyText = bodyText;
+    _resultData['bodyText'] = l$bodyText;
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
     return _resultData;
@@ -12132,11 +12133,11 @@ class Fragment$PRMessage$$TeamDiscussionComment implements Fragment$PRMessage {
   @override
   int get hashCode {
     final l$author = author;
-    final l$body = body;
+    final l$bodyText = bodyText;
     final l$$__typename = $__typename;
     return Object.hashAll([
       l$author,
-      l$body,
+      l$bodyText,
       l$$__typename,
     ]);
   }
@@ -12155,9 +12156,9 @@ class Fragment$PRMessage$$TeamDiscussionComment implements Fragment$PRMessage {
     if (l$author != lOther$author) {
       return false;
     }
-    final l$body = body;
-    final lOther$body = other.body;
-    if (l$body != lOther$body) {
+    final l$bodyText = bodyText;
+    final lOther$bodyText = other.bodyText;
+    if (l$bodyText != lOther$bodyText) {
       return false;
     }
     final l$$__typename = $__typename;
@@ -12190,7 +12191,7 @@ abstract class CopyWith$Fragment$PRMessage$$TeamDiscussionComment<TRes> {
 
   TRes call({
     Fragment$PRMessage$$TeamDiscussionComment$author? author,
-    String? body,
+    String? bodyText,
     String? $__typename,
   });
   CopyWith$Fragment$PRMessage$$TeamDiscussionComment$author<TRes> get author;
@@ -12211,16 +12212,16 @@ class _CopyWithImpl$Fragment$PRMessage$$TeamDiscussionComment<TRes>
 
   TRes call({
     Object? author = _undefined,
-    Object? body = _undefined,
+    Object? bodyText = _undefined,
     Object? $__typename = _undefined,
   }) =>
       _then(Fragment$PRMessage$$TeamDiscussionComment(
         author: author == _undefined
             ? _instance.author
             : (author as Fragment$PRMessage$$TeamDiscussionComment$author?),
-        body: body == _undefined || body == null
-            ? _instance.body
-            : (body as String),
+        bodyText: bodyText == _undefined || bodyText == null
+            ? _instance.bodyText
+            : (bodyText as String),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
@@ -12244,7 +12245,7 @@ class _CopyWithStubImpl$Fragment$PRMessage$$TeamDiscussionComment<TRes>
 
   call({
     Fragment$PRMessage$$TeamDiscussionComment$author? author,
-    String? body,
+    String? bodyText,
     String? $__typename,
   }) =>
       _res;
@@ -13206,50 +13207,65 @@ class _CopyWithStubImpl$Fragment$PRMessage$$TeamDiscussionComment$author$$User<
       _res;
 }
 
-class Variables$Query$allPullRequests {
-  factory Variables$Query$allPullRequests({required String name_repo}) =>
-      Variables$Query$allPullRequests._({
-        r'name_repo': name_repo,
+class Variables$Query$PRQuery {
+  factory Variables$Query$PRQuery({
+    required String repo_name,
+    required int pr_number,
+  }) =>
+      Variables$Query$PRQuery._({
+        r'repo_name': repo_name,
+        r'pr_number': pr_number,
       });
 
-  Variables$Query$allPullRequests._(this._$data);
+  Variables$Query$PRQuery._(this._$data);
 
-  factory Variables$Query$allPullRequests.fromJson(Map<String, dynamic> data) {
+  factory Variables$Query$PRQuery.fromJson(Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
-    final l$name_repo = data['name_repo'];
-    result$data['name_repo'] = (l$name_repo as String);
-    return Variables$Query$allPullRequests._(result$data);
+    final l$repo_name = data['repo_name'];
+    result$data['repo_name'] = (l$repo_name as String);
+    final l$pr_number = data['pr_number'];
+    result$data['pr_number'] = (l$pr_number as int);
+    return Variables$Query$PRQuery._(result$data);
   }
 
   Map<String, dynamic> _$data;
 
-  String get name_repo => (_$data['name_repo'] as String);
+  String get repo_name => (_$data['repo_name'] as String);
+
+  int get pr_number => (_$data['pr_number'] as int);
 
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
-    final l$name_repo = name_repo;
-    result$data['name_repo'] = l$name_repo;
+    final l$repo_name = repo_name;
+    result$data['repo_name'] = l$repo_name;
+    final l$pr_number = pr_number;
+    result$data['pr_number'] = l$pr_number;
     return result$data;
   }
 
-  CopyWith$Variables$Query$allPullRequests<Variables$Query$allPullRequests>
-      get copyWith => CopyWith$Variables$Query$allPullRequests(
-            this,
-            (i) => i,
-          );
+  CopyWith$Variables$Query$PRQuery<Variables$Query$PRQuery> get copyWith =>
+      CopyWith$Variables$Query$PRQuery(
+        this,
+        (i) => i,
+      );
 
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Variables$Query$allPullRequests) ||
+    if (!(other is Variables$Query$PRQuery) ||
         runtimeType != other.runtimeType) {
       return false;
     }
-    final l$name_repo = name_repo;
-    final lOther$name_repo = other.name_repo;
-    if (l$name_repo != lOther$name_repo) {
+    final l$repo_name = repo_name;
+    final lOther$repo_name = other.repo_name;
+    if (l$repo_name != lOther$repo_name) {
+      return false;
+    }
+    final l$pr_number = pr_number;
+    final lOther$pr_number = other.pr_number;
+    if (l$pr_number != lOther$pr_number) {
       return false;
     }
     return true;
@@ -13257,72 +13273,88 @@ class Variables$Query$allPullRequests {
 
   @override
   int get hashCode {
-    final l$name_repo = name_repo;
-    return Object.hashAll([l$name_repo]);
+    final l$repo_name = repo_name;
+    final l$pr_number = pr_number;
+    return Object.hashAll([
+      l$repo_name,
+      l$pr_number,
+    ]);
   }
 }
 
-abstract class CopyWith$Variables$Query$allPullRequests<TRes> {
-  factory CopyWith$Variables$Query$allPullRequests(
-    Variables$Query$allPullRequests instance,
-    TRes Function(Variables$Query$allPullRequests) then,
-  ) = _CopyWithImpl$Variables$Query$allPullRequests;
+abstract class CopyWith$Variables$Query$PRQuery<TRes> {
+  factory CopyWith$Variables$Query$PRQuery(
+    Variables$Query$PRQuery instance,
+    TRes Function(Variables$Query$PRQuery) then,
+  ) = _CopyWithImpl$Variables$Query$PRQuery;
 
-  factory CopyWith$Variables$Query$allPullRequests.stub(TRes res) =
-      _CopyWithStubImpl$Variables$Query$allPullRequests;
+  factory CopyWith$Variables$Query$PRQuery.stub(TRes res) =
+      _CopyWithStubImpl$Variables$Query$PRQuery;
 
-  TRes call({String? name_repo});
+  TRes call({
+    String? repo_name,
+    int? pr_number,
+  });
 }
 
-class _CopyWithImpl$Variables$Query$allPullRequests<TRes>
-    implements CopyWith$Variables$Query$allPullRequests<TRes> {
-  _CopyWithImpl$Variables$Query$allPullRequests(
+class _CopyWithImpl$Variables$Query$PRQuery<TRes>
+    implements CopyWith$Variables$Query$PRQuery<TRes> {
+  _CopyWithImpl$Variables$Query$PRQuery(
     this._instance,
     this._then,
   );
 
-  final Variables$Query$allPullRequests _instance;
+  final Variables$Query$PRQuery _instance;
 
-  final TRes Function(Variables$Query$allPullRequests) _then;
+  final TRes Function(Variables$Query$PRQuery) _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? name_repo = _undefined}) =>
-      _then(Variables$Query$allPullRequests._({
+  TRes call({
+    Object? repo_name = _undefined,
+    Object? pr_number = _undefined,
+  }) =>
+      _then(Variables$Query$PRQuery._({
         ..._instance._$data,
-        if (name_repo != _undefined && name_repo != null)
-          'name_repo': (name_repo as String),
+        if (repo_name != _undefined && repo_name != null)
+          'repo_name': (repo_name as String),
+        if (pr_number != _undefined && pr_number != null)
+          'pr_number': (pr_number as int),
       }));
 }
 
-class _CopyWithStubImpl$Variables$Query$allPullRequests<TRes>
-    implements CopyWith$Variables$Query$allPullRequests<TRes> {
-  _CopyWithStubImpl$Variables$Query$allPullRequests(this._res);
+class _CopyWithStubImpl$Variables$Query$PRQuery<TRes>
+    implements CopyWith$Variables$Query$PRQuery<TRes> {
+  _CopyWithStubImpl$Variables$Query$PRQuery(this._res);
 
   TRes _res;
 
-  call({String? name_repo}) => _res;
+  call({
+    String? repo_name,
+    int? pr_number,
+  }) =>
+      _res;
 }
 
-class Query$allPullRequests {
-  Query$allPullRequests({
+class Query$PRQuery {
+  Query$PRQuery({
     this.repository,
     this.$__typename = 'Query',
   });
 
-  factory Query$allPullRequests.fromJson(Map<String, dynamic> json) {
+  factory Query$PRQuery.fromJson(Map<String, dynamic> json) {
     final l$repository = json['repository'];
     final l$$__typename = json['__typename'];
-    return Query$allPullRequests(
+    return Query$PRQuery(
       repository: l$repository == null
           ? null
-          : Query$allPullRequests$repository.fromJson(
+          : Query$PRQuery$repository.fromJson(
               (l$repository as Map<String, dynamic>)),
       $__typename: (l$$__typename as String),
     );
   }
 
-  final Query$allPullRequests$repository? repository;
+  final Query$PRQuery$repository? repository;
 
   final String $__typename;
 
@@ -13350,7 +13382,7 @@ class Query$allPullRequests {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$allPullRequests) || runtimeType != other.runtimeType) {
+    if (!(other is Query$PRQuery) || runtimeType != other.runtimeType) {
       return false;
     }
     final l$repository = repository;
@@ -13367,40 +13399,39 @@ class Query$allPullRequests {
   }
 }
 
-extension UtilityExtension$Query$allPullRequests on Query$allPullRequests {
-  CopyWith$Query$allPullRequests<Query$allPullRequests> get copyWith =>
-      CopyWith$Query$allPullRequests(
+extension UtilityExtension$Query$PRQuery on Query$PRQuery {
+  CopyWith$Query$PRQuery<Query$PRQuery> get copyWith => CopyWith$Query$PRQuery(
         this,
         (i) => i,
       );
 }
 
-abstract class CopyWith$Query$allPullRequests<TRes> {
-  factory CopyWith$Query$allPullRequests(
-    Query$allPullRequests instance,
-    TRes Function(Query$allPullRequests) then,
-  ) = _CopyWithImpl$Query$allPullRequests;
+abstract class CopyWith$Query$PRQuery<TRes> {
+  factory CopyWith$Query$PRQuery(
+    Query$PRQuery instance,
+    TRes Function(Query$PRQuery) then,
+  ) = _CopyWithImpl$Query$PRQuery;
 
-  factory CopyWith$Query$allPullRequests.stub(TRes res) =
-      _CopyWithStubImpl$Query$allPullRequests;
+  factory CopyWith$Query$PRQuery.stub(TRes res) =
+      _CopyWithStubImpl$Query$PRQuery;
 
   TRes call({
-    Query$allPullRequests$repository? repository,
+    Query$PRQuery$repository? repository,
     String? $__typename,
   });
-  CopyWith$Query$allPullRequests$repository<TRes> get repository;
+  CopyWith$Query$PRQuery$repository<TRes> get repository;
 }
 
-class _CopyWithImpl$Query$allPullRequests<TRes>
-    implements CopyWith$Query$allPullRequests<TRes> {
-  _CopyWithImpl$Query$allPullRequests(
+class _CopyWithImpl$Query$PRQuery<TRes>
+    implements CopyWith$Query$PRQuery<TRes> {
+  _CopyWithImpl$Query$PRQuery(
     this._instance,
     this._then,
   );
 
-  final Query$allPullRequests _instance;
+  final Query$PRQuery _instance;
 
-  final TRes Function(Query$allPullRequests) _then;
+  final TRes Function(Query$PRQuery) _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
@@ -13408,54 +13439,63 @@ class _CopyWithImpl$Query$allPullRequests<TRes>
     Object? repository = _undefined,
     Object? $__typename = _undefined,
   }) =>
-      _then(Query$allPullRequests(
+      _then(Query$PRQuery(
         repository: repository == _undefined
             ? _instance.repository
-            : (repository as Query$allPullRequests$repository?),
+            : (repository as Query$PRQuery$repository?),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
       ));
 
-  CopyWith$Query$allPullRequests$repository<TRes> get repository {
+  CopyWith$Query$PRQuery$repository<TRes> get repository {
     final local$repository = _instance.repository;
     return local$repository == null
-        ? CopyWith$Query$allPullRequests$repository.stub(_then(_instance))
-        : CopyWith$Query$allPullRequests$repository(
+        ? CopyWith$Query$PRQuery$repository.stub(_then(_instance))
+        : CopyWith$Query$PRQuery$repository(
             local$repository, (e) => call(repository: e));
   }
 }
 
-class _CopyWithStubImpl$Query$allPullRequests<TRes>
-    implements CopyWith$Query$allPullRequests<TRes> {
-  _CopyWithStubImpl$Query$allPullRequests(this._res);
+class _CopyWithStubImpl$Query$PRQuery<TRes>
+    implements CopyWith$Query$PRQuery<TRes> {
+  _CopyWithStubImpl$Query$PRQuery(this._res);
 
   TRes _res;
 
   call({
-    Query$allPullRequests$repository? repository,
+    Query$PRQuery$repository? repository,
     String? $__typename,
   }) =>
       _res;
 
-  CopyWith$Query$allPullRequests$repository<TRes> get repository =>
-      CopyWith$Query$allPullRequests$repository.stub(_res);
+  CopyWith$Query$PRQuery$repository<TRes> get repository =>
+      CopyWith$Query$PRQuery$repository.stub(_res);
 }
 
-const documentNodeQueryallPullRequests = DocumentNode(definitions: [
+const documentNodeQueryPRQuery = DocumentNode(definitions: [
   OperationDefinitionNode(
     type: OperationType.query,
-    name: NameNode(value: 'allPullRequests'),
+    name: NameNode(value: 'PRQuery'),
     variableDefinitions: [
       VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'name_repo')),
+        variable: VariableNode(name: NameNode(value: 'repo_name')),
         type: NamedTypeNode(
           name: NameNode(value: 'String'),
           isNonNull: true,
         ),
         defaultValue: DefaultValueNode(value: null),
         directives: [],
-      )
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'pr_number')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'Int'),
+          isNonNull: true,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
     ],
     directives: [],
     selectionSet: SelectionSetNode(selections: [
@@ -13466,53 +13506,31 @@ const documentNodeQueryallPullRequests = DocumentNode(definitions: [
           ArgumentNode(
             name: NameNode(value: 'owner'),
             value: StringValueNode(
-              value: 'nrbnlulu',
+              value: 'AlmogZinger',
               isBlock: false,
             ),
           ),
           ArgumentNode(
             name: NameNode(value: 'name'),
-            value: VariableNode(name: NameNode(value: 'name_repo')),
+            value: VariableNode(name: NameNode(value: 'repo_name')),
           ),
         ],
         directives: [],
         selectionSet: SelectionSetNode(selections: [
           FieldNode(
-            name: NameNode(value: 'pullRequests'),
+            name: NameNode(value: 'pullRequest'),
             alias: null,
             arguments: [
               ArgumentNode(
-                name: NameNode(value: 'first'),
-                value: IntValueNode(value: '100'),
+                name: NameNode(value: 'number'),
+                value: VariableNode(name: NameNode(value: 'pr_number')),
               )
             ],
             directives: [],
             selectionSet: SelectionSetNode(selections: [
-              FieldNode(
-                name: NameNode(value: 'nodes'),
-                alias: null,
-                arguments: [],
+              FragmentSpreadNode(
+                name: NameNode(value: 'PRMessage'),
                 directives: [],
-                selectionSet: SelectionSetNode(selections: [
-                  FieldNode(
-                    name: NameNode(value: 'number'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FragmentSpreadNode(
-                    name: NameNode(value: 'PRMessage'),
-                    directives: [],
-                  ),
-                  FieldNode(
-                    name: NameNode(value: '__typename'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                ]),
               ),
               FieldNode(
                 name: NameNode(value: '__typename'),
@@ -13543,27 +13561,25 @@ const documentNodeQueryallPullRequests = DocumentNode(definitions: [
   ),
   fragmentDefinitionPRMessage,
 ]);
-Query$allPullRequests _parserFn$Query$allPullRequests(
-        Map<String, dynamic> data) =>
-    Query$allPullRequests.fromJson(data);
-typedef OnQueryComplete$Query$allPullRequests = FutureOr<void> Function(
+Query$PRQuery _parserFn$Query$PRQuery(Map<String, dynamic> data) =>
+    Query$PRQuery.fromJson(data);
+typedef OnQueryComplete$Query$PRQuery = FutureOr<void> Function(
   Map<String, dynamic>?,
-  Query$allPullRequests?,
+  Query$PRQuery?,
 );
 
-class Options$Query$allPullRequests
-    extends graphql.QueryOptions<Query$allPullRequests> {
-  Options$Query$allPullRequests({
+class Options$Query$PRQuery extends graphql.QueryOptions<Query$PRQuery> {
+  Options$Query$PRQuery({
     String? operationName,
-    required Variables$Query$allPullRequests variables,
+    required Variables$Query$PRQuery variables,
     graphql.FetchPolicy? fetchPolicy,
     graphql.ErrorPolicy? errorPolicy,
     graphql.CacheRereadPolicy? cacheRereadPolicy,
     Object? optimisticResult,
-    Query$allPullRequests? typedOptimisticResult,
+    Query$PRQuery? typedOptimisticResult,
     Duration? pollInterval,
     graphql.Context? context,
-    OnQueryComplete$Query$allPullRequests? onComplete,
+    OnQueryComplete$Query$PRQuery? onComplete,
     graphql.OnQueryError? onError,
   })  : onCompleteWithParsed = onComplete,
         super(
@@ -13579,14 +13595,14 @@ class Options$Query$allPullRequests
               ? null
               : (data) => onComplete(
                     data,
-                    data == null ? null : _parserFn$Query$allPullRequests(data),
+                    data == null ? null : _parserFn$Query$PRQuery(data),
                   ),
           onError: onError,
-          document: documentNodeQueryallPullRequests,
-          parserFn: _parserFn$Query$allPullRequests,
+          document: documentNodeQueryPRQuery,
+          parserFn: _parserFn$Query$PRQuery,
         );
 
-  final OnQueryComplete$Query$allPullRequests? onCompleteWithParsed;
+  final OnQueryComplete$Query$PRQuery? onCompleteWithParsed;
 
   @override
   List<Object?> get properties => [
@@ -13597,16 +13613,16 @@ class Options$Query$allPullRequests
       ];
 }
 
-class WatchOptions$Query$allPullRequests
-    extends graphql.WatchQueryOptions<Query$allPullRequests> {
-  WatchOptions$Query$allPullRequests({
+class WatchOptions$Query$PRQuery
+    extends graphql.WatchQueryOptions<Query$PRQuery> {
+  WatchOptions$Query$PRQuery({
     String? operationName,
-    required Variables$Query$allPullRequests variables,
+    required Variables$Query$PRQuery variables,
     graphql.FetchPolicy? fetchPolicy,
     graphql.ErrorPolicy? errorPolicy,
     graphql.CacheRereadPolicy? cacheRereadPolicy,
     Object? optimisticResult,
-    Query$allPullRequests? typedOptimisticResult,
+    Query$PRQuery? typedOptimisticResult,
     graphql.Context? context,
     Duration? pollInterval,
     bool? eagerlyFetchResults,
@@ -13620,76 +13636,73 @@ class WatchOptions$Query$allPullRequests
           cacheRereadPolicy: cacheRereadPolicy,
           optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
           context: context,
-          document: documentNodeQueryallPullRequests,
+          document: documentNodeQueryPRQuery,
           pollInterval: pollInterval,
           eagerlyFetchResults: eagerlyFetchResults,
           carryForwardDataOnException: carryForwardDataOnException,
           fetchResults: fetchResults,
-          parserFn: _parserFn$Query$allPullRequests,
+          parserFn: _parserFn$Query$PRQuery,
         );
 }
 
-class FetchMoreOptions$Query$allPullRequests extends graphql.FetchMoreOptions {
-  FetchMoreOptions$Query$allPullRequests({
+class FetchMoreOptions$Query$PRQuery extends graphql.FetchMoreOptions {
+  FetchMoreOptions$Query$PRQuery({
     required graphql.UpdateQuery updateQuery,
-    required Variables$Query$allPullRequests variables,
+    required Variables$Query$PRQuery variables,
   }) : super(
           updateQuery: updateQuery,
           variables: variables.toJson(),
-          document: documentNodeQueryallPullRequests,
+          document: documentNodeQueryPRQuery,
         );
 }
 
-extension ClientExtension$Query$allPullRequests on graphql.GraphQLClient {
-  Future<graphql.QueryResult<Query$allPullRequests>> query$allPullRequests(
-          Options$Query$allPullRequests options) async =>
+extension ClientExtension$Query$PRQuery on graphql.GraphQLClient {
+  Future<graphql.QueryResult<Query$PRQuery>> query$PRQuery(
+          Options$Query$PRQuery options) async =>
       await this.query(options);
-  graphql.ObservableQuery<Query$allPullRequests> watchQuery$allPullRequests(
-          WatchOptions$Query$allPullRequests options) =>
+  graphql.ObservableQuery<Query$PRQuery> watchQuery$PRQuery(
+          WatchOptions$Query$PRQuery options) =>
       this.watchQuery(options);
-  void writeQuery$allPullRequests({
-    required Query$allPullRequests data,
-    required Variables$Query$allPullRequests variables,
+  void writeQuery$PRQuery({
+    required Query$PRQuery data,
+    required Variables$Query$PRQuery variables,
     bool broadcast = true,
   }) =>
       this.writeQuery(
         graphql.Request(
-          operation:
-              graphql.Operation(document: documentNodeQueryallPullRequests),
+          operation: graphql.Operation(document: documentNodeQueryPRQuery),
           variables: variables.toJson(),
         ),
         data: data.toJson(),
         broadcast: broadcast,
       );
-  Query$allPullRequests? readQuery$allPullRequests({
-    required Variables$Query$allPullRequests variables,
+  Query$PRQuery? readQuery$PRQuery({
+    required Variables$Query$PRQuery variables,
     bool optimistic = true,
   }) {
     final result = this.readQuery(
       graphql.Request(
-        operation:
-            graphql.Operation(document: documentNodeQueryallPullRequests),
+        operation: graphql.Operation(document: documentNodeQueryPRQuery),
         variables: variables.toJson(),
       ),
       optimistic: optimistic,
     );
-    return result == null ? null : Query$allPullRequests.fromJson(result);
+    return result == null ? null : Query$PRQuery.fromJson(result);
   }
 }
 
-graphql_flutter.QueryHookResult<Query$allPullRequests> useQuery$allPullRequests(
-        Options$Query$allPullRequests options) =>
+graphql_flutter.QueryHookResult<Query$PRQuery> useQuery$PRQuery(
+        Options$Query$PRQuery options) =>
     graphql_flutter.useQuery(options);
-graphql.ObservableQuery<Query$allPullRequests> useWatchQuery$allPullRequests(
-        WatchOptions$Query$allPullRequests options) =>
+graphql.ObservableQuery<Query$PRQuery> useWatchQuery$PRQuery(
+        WatchOptions$Query$PRQuery options) =>
     graphql_flutter.useWatchQuery(options);
 
-class Query$allPullRequests$Widget
-    extends graphql_flutter.Query<Query$allPullRequests> {
-  Query$allPullRequests$Widget({
+class Query$PRQuery$Widget extends graphql_flutter.Query<Query$PRQuery> {
+  Query$PRQuery$Widget({
     widgets.Key? key,
-    required Options$Query$allPullRequests options,
-    required graphql_flutter.QueryBuilder<Query$allPullRequests> builder,
+    required Options$Query$PRQuery options,
+    required graphql_flutter.QueryBuilder<Query$PRQuery> builder,
   }) : super(
           key: key,
           options: options,
@@ -13697,30 +13710,32 @@ class Query$allPullRequests$Widget
         );
 }
 
-class Query$allPullRequests$repository {
-  Query$allPullRequests$repository({
-    required this.pullRequests,
+class Query$PRQuery$repository {
+  Query$PRQuery$repository({
+    this.pullRequest,
     this.$__typename = 'Repository',
   });
 
-  factory Query$allPullRequests$repository.fromJson(Map<String, dynamic> json) {
-    final l$pullRequests = json['pullRequests'];
+  factory Query$PRQuery$repository.fromJson(Map<String, dynamic> json) {
+    final l$pullRequest = json['pullRequest'];
     final l$$__typename = json['__typename'];
-    return Query$allPullRequests$repository(
-      pullRequests: Query$allPullRequests$repository$pullRequests.fromJson(
-          (l$pullRequests as Map<String, dynamic>)),
+    return Query$PRQuery$repository(
+      pullRequest: l$pullRequest == null
+          ? null
+          : Query$PRQuery$repository$pullRequest.fromJson(
+              (l$pullRequest as Map<String, dynamic>)),
       $__typename: (l$$__typename as String),
     );
   }
 
-  final Query$allPullRequests$repository$pullRequests pullRequests;
+  final Query$PRQuery$repository$pullRequest? pullRequest;
 
   final String $__typename;
 
   Map<String, dynamic> toJson() {
     final _resultData = <String, dynamic>{};
-    final l$pullRequests = pullRequests;
-    _resultData['pullRequests'] = l$pullRequests.toJson();
+    final l$pullRequest = pullRequest;
+    _resultData['pullRequest'] = l$pullRequest?.toJson();
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
     return _resultData;
@@ -13728,10 +13743,10 @@ class Query$allPullRequests$repository {
 
   @override
   int get hashCode {
-    final l$pullRequests = pullRequests;
+    final l$pullRequest = pullRequest;
     final l$$__typename = $__typename;
     return Object.hashAll([
-      l$pullRequests,
+      l$pullRequest,
       l$$__typename,
     ]);
   }
@@ -13741,13 +13756,13 @@ class Query$allPullRequests$repository {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$allPullRequests$repository) ||
+    if (!(other is Query$PRQuery$repository) ||
         runtimeType != other.runtimeType) {
       return false;
     }
-    final l$pullRequests = pullRequests;
-    final lOther$pullRequests = other.pullRequests;
-    if (l$pullRequests != lOther$pullRequests) {
+    final l$pullRequest = pullRequest;
+    final lOther$pullRequest = other.pullRequest;
+    if (l$pullRequest != lOther$pullRequest) {
       return false;
     }
     final l$$__typename = $__typename;
@@ -13759,278 +13774,106 @@ class Query$allPullRequests$repository {
   }
 }
 
-extension UtilityExtension$Query$allPullRequests$repository
-    on Query$allPullRequests$repository {
-  CopyWith$Query$allPullRequests$repository<Query$allPullRequests$repository>
-      get copyWith => CopyWith$Query$allPullRequests$repository(
-            this,
-            (i) => i,
-          );
+extension UtilityExtension$Query$PRQuery$repository
+    on Query$PRQuery$repository {
+  CopyWith$Query$PRQuery$repository<Query$PRQuery$repository> get copyWith =>
+      CopyWith$Query$PRQuery$repository(
+        this,
+        (i) => i,
+      );
 }
 
-abstract class CopyWith$Query$allPullRequests$repository<TRes> {
-  factory CopyWith$Query$allPullRequests$repository(
-    Query$allPullRequests$repository instance,
-    TRes Function(Query$allPullRequests$repository) then,
-  ) = _CopyWithImpl$Query$allPullRequests$repository;
+abstract class CopyWith$Query$PRQuery$repository<TRes> {
+  factory CopyWith$Query$PRQuery$repository(
+    Query$PRQuery$repository instance,
+    TRes Function(Query$PRQuery$repository) then,
+  ) = _CopyWithImpl$Query$PRQuery$repository;
 
-  factory CopyWith$Query$allPullRequests$repository.stub(TRes res) =
-      _CopyWithStubImpl$Query$allPullRequests$repository;
+  factory CopyWith$Query$PRQuery$repository.stub(TRes res) =
+      _CopyWithStubImpl$Query$PRQuery$repository;
 
   TRes call({
-    Query$allPullRequests$repository$pullRequests? pullRequests,
+    Query$PRQuery$repository$pullRequest? pullRequest,
     String? $__typename,
   });
-  CopyWith$Query$allPullRequests$repository$pullRequests<TRes> get pullRequests;
+  CopyWith$Query$PRQuery$repository$pullRequest<TRes> get pullRequest;
 }
 
-class _CopyWithImpl$Query$allPullRequests$repository<TRes>
-    implements CopyWith$Query$allPullRequests$repository<TRes> {
-  _CopyWithImpl$Query$allPullRequests$repository(
+class _CopyWithImpl$Query$PRQuery$repository<TRes>
+    implements CopyWith$Query$PRQuery$repository<TRes> {
+  _CopyWithImpl$Query$PRQuery$repository(
     this._instance,
     this._then,
   );
 
-  final Query$allPullRequests$repository _instance;
+  final Query$PRQuery$repository _instance;
 
-  final TRes Function(Query$allPullRequests$repository) _then;
+  final TRes Function(Query$PRQuery$repository) _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
-    Object? pullRequests = _undefined,
+    Object? pullRequest = _undefined,
     Object? $__typename = _undefined,
   }) =>
-      _then(Query$allPullRequests$repository(
-        pullRequests: pullRequests == _undefined || pullRequests == null
-            ? _instance.pullRequests
-            : (pullRequests as Query$allPullRequests$repository$pullRequests),
+      _then(Query$PRQuery$repository(
+        pullRequest: pullRequest == _undefined
+            ? _instance.pullRequest
+            : (pullRequest as Query$PRQuery$repository$pullRequest?),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
       ));
 
-  CopyWith$Query$allPullRequests$repository$pullRequests<TRes>
-      get pullRequests {
-    final local$pullRequests = _instance.pullRequests;
-    return CopyWith$Query$allPullRequests$repository$pullRequests(
-        local$pullRequests, (e) => call(pullRequests: e));
+  CopyWith$Query$PRQuery$repository$pullRequest<TRes> get pullRequest {
+    final local$pullRequest = _instance.pullRequest;
+    return local$pullRequest == null
+        ? CopyWith$Query$PRQuery$repository$pullRequest.stub(_then(_instance))
+        : CopyWith$Query$PRQuery$repository$pullRequest(
+            local$pullRequest, (e) => call(pullRequest: e));
   }
 }
 
-class _CopyWithStubImpl$Query$allPullRequests$repository<TRes>
-    implements CopyWith$Query$allPullRequests$repository<TRes> {
-  _CopyWithStubImpl$Query$allPullRequests$repository(this._res);
+class _CopyWithStubImpl$Query$PRQuery$repository<TRes>
+    implements CopyWith$Query$PRQuery$repository<TRes> {
+  _CopyWithStubImpl$Query$PRQuery$repository(this._res);
 
   TRes _res;
 
   call({
-    Query$allPullRequests$repository$pullRequests? pullRequests,
+    Query$PRQuery$repository$pullRequest? pullRequest,
     String? $__typename,
   }) =>
       _res;
 
-  CopyWith$Query$allPullRequests$repository$pullRequests<TRes>
-      get pullRequests =>
-          CopyWith$Query$allPullRequests$repository$pullRequests.stub(_res);
+  CopyWith$Query$PRQuery$repository$pullRequest<TRes> get pullRequest =>
+      CopyWith$Query$PRQuery$repository$pullRequest.stub(_res);
 }
 
-class Query$allPullRequests$repository$pullRequests {
-  Query$allPullRequests$repository$pullRequests({
-    this.nodes,
-    this.$__typename = 'PullRequestConnection',
-  });
-
-  factory Query$allPullRequests$repository$pullRequests.fromJson(
-      Map<String, dynamic> json) {
-    final l$nodes = json['nodes'];
-    final l$$__typename = json['__typename'];
-    return Query$allPullRequests$repository$pullRequests(
-      nodes: (l$nodes as List<dynamic>?)
-          ?.map((e) => e == null
-              ? null
-              : Query$allPullRequests$repository$pullRequests$nodes.fromJson(
-                  (e as Map<String, dynamic>)))
-          .toList(),
-      $__typename: (l$$__typename as String),
-    );
-  }
-
-  final List<Query$allPullRequests$repository$pullRequests$nodes?>? nodes;
-
-  final String $__typename;
-
-  Map<String, dynamic> toJson() {
-    final _resultData = <String, dynamic>{};
-    final l$nodes = nodes;
-    _resultData['nodes'] = l$nodes?.map((e) => e?.toJson()).toList();
-    final l$$__typename = $__typename;
-    _resultData['__typename'] = l$$__typename;
-    return _resultData;
-  }
-
-  @override
-  int get hashCode {
-    final l$nodes = nodes;
-    final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$nodes == null ? null : Object.hashAll(l$nodes.map((v) => v)),
-      l$$__typename,
-    ]);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other is Query$allPullRequests$repository$pullRequests) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$nodes = nodes;
-    final lOther$nodes = other.nodes;
-    if (l$nodes != null && lOther$nodes != null) {
-      if (l$nodes.length != lOther$nodes.length) {
-        return false;
-      }
-      for (int i = 0; i < l$nodes.length; i++) {
-        final l$nodes$entry = l$nodes[i];
-        final lOther$nodes$entry = lOther$nodes[i];
-        if (l$nodes$entry != lOther$nodes$entry) {
-          return false;
-        }
-      }
-    } else if (l$nodes != lOther$nodes) {
-      return false;
-    }
-    final l$$__typename = $__typename;
-    final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) {
-      return false;
-    }
-    return true;
-  }
-}
-
-extension UtilityExtension$Query$allPullRequests$repository$pullRequests
-    on Query$allPullRequests$repository$pullRequests {
-  CopyWith$Query$allPullRequests$repository$pullRequests<
-          Query$allPullRequests$repository$pullRequests>
-      get copyWith => CopyWith$Query$allPullRequests$repository$pullRequests(
-            this,
-            (i) => i,
-          );
-}
-
-abstract class CopyWith$Query$allPullRequests$repository$pullRequests<TRes> {
-  factory CopyWith$Query$allPullRequests$repository$pullRequests(
-    Query$allPullRequests$repository$pullRequests instance,
-    TRes Function(Query$allPullRequests$repository$pullRequests) then,
-  ) = _CopyWithImpl$Query$allPullRequests$repository$pullRequests;
-
-  factory CopyWith$Query$allPullRequests$repository$pullRequests.stub(
-          TRes res) =
-      _CopyWithStubImpl$Query$allPullRequests$repository$pullRequests;
-
-  TRes call({
-    List<Query$allPullRequests$repository$pullRequests$nodes?>? nodes,
-    String? $__typename,
-  });
-  TRes nodes(
-      Iterable<Query$allPullRequests$repository$pullRequests$nodes?>? Function(
-              Iterable<
-                  CopyWith$Query$allPullRequests$repository$pullRequests$nodes<
-                      Query$allPullRequests$repository$pullRequests$nodes>?>?)
-          _fn);
-}
-
-class _CopyWithImpl$Query$allPullRequests$repository$pullRequests<TRes>
-    implements CopyWith$Query$allPullRequests$repository$pullRequests<TRes> {
-  _CopyWithImpl$Query$allPullRequests$repository$pullRequests(
-    this._instance,
-    this._then,
-  );
-
-  final Query$allPullRequests$repository$pullRequests _instance;
-
-  final TRes Function(Query$allPullRequests$repository$pullRequests) _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({
-    Object? nodes = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(Query$allPullRequests$repository$pullRequests(
-        nodes: nodes == _undefined
-            ? _instance.nodes
-            : (nodes
-                as List<Query$allPullRequests$repository$pullRequests$nodes?>?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
-
-  TRes nodes(
-          Iterable<Query$allPullRequests$repository$pullRequests$nodes?>? Function(
-                  Iterable<
-                      CopyWith$Query$allPullRequests$repository$pullRequests$nodes<
-                          Query$allPullRequests$repository$pullRequests$nodes>?>?)
-              _fn) =>
-      call(
-          nodes: _fn(_instance.nodes?.map((e) => e == null
-              ? null
-              : CopyWith$Query$allPullRequests$repository$pullRequests$nodes(
-                  e,
-                  (i) => i,
-                )))?.toList());
-}
-
-class _CopyWithStubImpl$Query$allPullRequests$repository$pullRequests<TRes>
-    implements CopyWith$Query$allPullRequests$repository$pullRequests<TRes> {
-  _CopyWithStubImpl$Query$allPullRequests$repository$pullRequests(this._res);
-
-  TRes _res;
-
-  call({
-    List<Query$allPullRequests$repository$pullRequests$nodes?>? nodes,
-    String? $__typename,
-  }) =>
-      _res;
-
-  nodes(_fn) => _res;
-}
-
-class Query$allPullRequests$repository$pullRequests$nodes
+class Query$PRQuery$repository$pullRequest
     implements Fragment$PRMessage$$PullRequest {
-  Query$allPullRequests$repository$pullRequests$nodes({
-    required this.number,
+  Query$PRQuery$repository$pullRequest({
     this.author,
     required this.body,
     this.$__typename = 'PullRequest',
   });
 
-  factory Query$allPullRequests$repository$pullRequests$nodes.fromJson(
+  factory Query$PRQuery$repository$pullRequest.fromJson(
       Map<String, dynamic> json) {
-    final l$number = json['number'];
     final l$author = json['author'];
     final l$body = json['body'];
     final l$$__typename = json['__typename'];
-    return Query$allPullRequests$repository$pullRequests$nodes(
-      number: (l$number as int),
+    return Query$PRQuery$repository$pullRequest(
       author: l$author == null
           ? null
-          : Query$allPullRequests$repository$pullRequests$nodes$author.fromJson(
+          : Query$PRQuery$repository$pullRequest$author.fromJson(
               (l$author as Map<String, dynamic>)),
       body: (l$body as String),
       $__typename: (l$$__typename as String),
     );
   }
 
-  final int number;
-
-  final Query$allPullRequests$repository$pullRequests$nodes$author? author;
+  final Query$PRQuery$repository$pullRequest$author? author;
 
   final String body;
 
@@ -14038,8 +13881,6 @@ class Query$allPullRequests$repository$pullRequests$nodes
 
   Map<String, dynamic> toJson() {
     final _resultData = <String, dynamic>{};
-    final l$number = number;
-    _resultData['number'] = l$number;
     final l$author = author;
     _resultData['author'] = l$author?.toJson();
     final l$body = body;
@@ -14051,12 +13892,10 @@ class Query$allPullRequests$repository$pullRequests$nodes
 
   @override
   int get hashCode {
-    final l$number = number;
     final l$author = author;
     final l$body = body;
     final l$$__typename = $__typename;
     return Object.hashAll([
-      l$number,
       l$author,
       l$body,
       l$$__typename,
@@ -14068,13 +13907,8 @@ class Query$allPullRequests$repository$pullRequests$nodes
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$allPullRequests$repository$pullRequests$nodes) ||
+    if (!(other is Query$PRQuery$repository$pullRequest) ||
         runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$number = number;
-    final lOther$number = other.number;
-    if (l$number != lOther$number) {
       return false;
     }
     final l$author = author;
@@ -14096,67 +13930,55 @@ class Query$allPullRequests$repository$pullRequests$nodes
   }
 }
 
-extension UtilityExtension$Query$allPullRequests$repository$pullRequests$nodes
-    on Query$allPullRequests$repository$pullRequests$nodes {
-  CopyWith$Query$allPullRequests$repository$pullRequests$nodes<
-          Query$allPullRequests$repository$pullRequests$nodes>
-      get copyWith =>
-          CopyWith$Query$allPullRequests$repository$pullRequests$nodes(
+extension UtilityExtension$Query$PRQuery$repository$pullRequest
+    on Query$PRQuery$repository$pullRequest {
+  CopyWith$Query$PRQuery$repository$pullRequest<
+          Query$PRQuery$repository$pullRequest>
+      get copyWith => CopyWith$Query$PRQuery$repository$pullRequest(
             this,
             (i) => i,
           );
 }
 
-abstract class CopyWith$Query$allPullRequests$repository$pullRequests$nodes<
-    TRes> {
-  factory CopyWith$Query$allPullRequests$repository$pullRequests$nodes(
-    Query$allPullRequests$repository$pullRequests$nodes instance,
-    TRes Function(Query$allPullRequests$repository$pullRequests$nodes) then,
-  ) = _CopyWithImpl$Query$allPullRequests$repository$pullRequests$nodes;
+abstract class CopyWith$Query$PRQuery$repository$pullRequest<TRes> {
+  factory CopyWith$Query$PRQuery$repository$pullRequest(
+    Query$PRQuery$repository$pullRequest instance,
+    TRes Function(Query$PRQuery$repository$pullRequest) then,
+  ) = _CopyWithImpl$Query$PRQuery$repository$pullRequest;
 
-  factory CopyWith$Query$allPullRequests$repository$pullRequests$nodes.stub(
-          TRes res) =
-      _CopyWithStubImpl$Query$allPullRequests$repository$pullRequests$nodes;
+  factory CopyWith$Query$PRQuery$repository$pullRequest.stub(TRes res) =
+      _CopyWithStubImpl$Query$PRQuery$repository$pullRequest;
 
   TRes call({
-    int? number,
-    Query$allPullRequests$repository$pullRequests$nodes$author? author,
+    Query$PRQuery$repository$pullRequest$author? author,
     String? body,
     String? $__typename,
   });
-  CopyWith$Query$allPullRequests$repository$pullRequests$nodes$author<TRes>
-      get author;
+  CopyWith$Query$PRQuery$repository$pullRequest$author<TRes> get author;
 }
 
-class _CopyWithImpl$Query$allPullRequests$repository$pullRequests$nodes<TRes>
-    implements
-        CopyWith$Query$allPullRequests$repository$pullRequests$nodes<TRes> {
-  _CopyWithImpl$Query$allPullRequests$repository$pullRequests$nodes(
+class _CopyWithImpl$Query$PRQuery$repository$pullRequest<TRes>
+    implements CopyWith$Query$PRQuery$repository$pullRequest<TRes> {
+  _CopyWithImpl$Query$PRQuery$repository$pullRequest(
     this._instance,
     this._then,
   );
 
-  final Query$allPullRequests$repository$pullRequests$nodes _instance;
+  final Query$PRQuery$repository$pullRequest _instance;
 
-  final TRes Function(Query$allPullRequests$repository$pullRequests$nodes)
-      _then;
+  final TRes Function(Query$PRQuery$repository$pullRequest) _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
-    Object? number = _undefined,
     Object? author = _undefined,
     Object? body = _undefined,
     Object? $__typename = _undefined,
   }) =>
-      _then(Query$allPullRequests$repository$pullRequests$nodes(
-        number: number == _undefined || number == null
-            ? _instance.number
-            : (number as int),
+      _then(Query$PRQuery$repository$pullRequest(
         author: author == _undefined
             ? _instance.author
-            : (author
-                as Query$allPullRequests$repository$pullRequests$nodes$author?),
+            : (author as Query$PRQuery$repository$pullRequest$author?),
         body: body == _undefined || body == null
             ? _instance.body
             : (body as String),
@@ -14165,74 +13987,65 @@ class _CopyWithImpl$Query$allPullRequests$repository$pullRequests$nodes<TRes>
             : ($__typename as String),
       ));
 
-  CopyWith$Query$allPullRequests$repository$pullRequests$nodes$author<TRes>
-      get author {
+  CopyWith$Query$PRQuery$repository$pullRequest$author<TRes> get author {
     final local$author = _instance.author;
     return local$author == null
-        ? CopyWith$Query$allPullRequests$repository$pullRequests$nodes$author
-            .stub(_then(_instance))
-        : CopyWith$Query$allPullRequests$repository$pullRequests$nodes$author(
+        ? CopyWith$Query$PRQuery$repository$pullRequest$author.stub(
+            _then(_instance))
+        : CopyWith$Query$PRQuery$repository$pullRequest$author(
             local$author, (e) => call(author: e));
   }
 }
 
-class _CopyWithStubImpl$Query$allPullRequests$repository$pullRequests$nodes<
-        TRes>
-    implements
-        CopyWith$Query$allPullRequests$repository$pullRequests$nodes<TRes> {
-  _CopyWithStubImpl$Query$allPullRequests$repository$pullRequests$nodes(
-      this._res);
+class _CopyWithStubImpl$Query$PRQuery$repository$pullRequest<TRes>
+    implements CopyWith$Query$PRQuery$repository$pullRequest<TRes> {
+  _CopyWithStubImpl$Query$PRQuery$repository$pullRequest(this._res);
 
   TRes _res;
 
   call({
-    int? number,
-    Query$allPullRequests$repository$pullRequests$nodes$author? author,
+    Query$PRQuery$repository$pullRequest$author? author,
     String? body,
     String? $__typename,
   }) =>
       _res;
 
-  CopyWith$Query$allPullRequests$repository$pullRequests$nodes$author<TRes>
-      get author =>
-          CopyWith$Query$allPullRequests$repository$pullRequests$nodes$author
-              .stub(_res);
+  CopyWith$Query$PRQuery$repository$pullRequest$author<TRes> get author =>
+      CopyWith$Query$PRQuery$repository$pullRequest$author.stub(_res);
 }
 
-class Query$allPullRequests$repository$pullRequests$nodes$author
+class Query$PRQuery$repository$pullRequest$author
     implements Fragment$PRMessage$$PullRequest$author {
-  Query$allPullRequests$repository$pullRequests$nodes$author({
+  Query$PRQuery$repository$pullRequest$author({
     required this.avatarUrl,
     required this.$__typename,
   });
 
-  factory Query$allPullRequests$repository$pullRequests$nodes$author.fromJson(
+  factory Query$PRQuery$repository$pullRequest$author.fromJson(
       Map<String, dynamic> json) {
     switch (json["__typename"] as String) {
       case "Bot":
-        return Query$allPullRequests$repository$pullRequests$nodes$author$$Bot
-            .fromJson(json);
+        return Query$PRQuery$repository$pullRequest$author$$Bot.fromJson(json);
 
       case "EnterpriseUserAccount":
-        return Query$allPullRequests$repository$pullRequests$nodes$author$$EnterpriseUserAccount
+        return Query$PRQuery$repository$pullRequest$author$$EnterpriseUserAccount
             .fromJson(json);
 
       case "Mannequin":
-        return Query$allPullRequests$repository$pullRequests$nodes$author$$Mannequin
-            .fromJson(json);
+        return Query$PRQuery$repository$pullRequest$author$$Mannequin.fromJson(
+            json);
 
       case "Organization":
-        return Query$allPullRequests$repository$pullRequests$nodes$author$$Organization
+        return Query$PRQuery$repository$pullRequest$author$$Organization
             .fromJson(json);
 
       case "User":
-        return Query$allPullRequests$repository$pullRequests$nodes$author$$User
-            .fromJson(json);
+        return Query$PRQuery$repository$pullRequest$author$$User.fromJson(json);
 
       default:
         final l$avatarUrl = json['avatarUrl'];
         final l$$__typename = json['__typename'];
-        return Query$allPullRequests$repository$pullRequests$nodes$author(
+        return Query$PRQuery$repository$pullRequest$author(
           avatarUrl: (l$avatarUrl as String),
           $__typename: (l$$__typename as String),
         );
@@ -14267,8 +14080,7 @@ class Query$allPullRequests$repository$pullRequests$nodes$author
     if (identical(this, other)) {
       return true;
     }
-    if (!(other
-            is Query$allPullRequests$repository$pullRequests$nodes$author) ||
+    if (!(other is Query$PRQuery$repository$pullRequest$author) ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -14286,53 +14098,46 @@ class Query$allPullRequests$repository$pullRequests$nodes$author
   }
 }
 
-extension UtilityExtension$Query$allPullRequests$repository$pullRequests$nodes$author
-    on Query$allPullRequests$repository$pullRequests$nodes$author {
-  CopyWith$Query$allPullRequests$repository$pullRequests$nodes$author<
-          Query$allPullRequests$repository$pullRequests$nodes$author>
-      get copyWith =>
-          CopyWith$Query$allPullRequests$repository$pullRequests$nodes$author(
+extension UtilityExtension$Query$PRQuery$repository$pullRequest$author
+    on Query$PRQuery$repository$pullRequest$author {
+  CopyWith$Query$PRQuery$repository$pullRequest$author<
+          Query$PRQuery$repository$pullRequest$author>
+      get copyWith => CopyWith$Query$PRQuery$repository$pullRequest$author(
             this,
             (i) => i,
           );
   _T when<_T>({
+    required _T Function(Query$PRQuery$repository$pullRequest$author$$Bot) bot,
     required _T Function(
-            Query$allPullRequests$repository$pullRequests$nodes$author$$Bot)
-        bot,
-    required _T Function(
-            Query$allPullRequests$repository$pullRequests$nodes$author$$EnterpriseUserAccount)
+            Query$PRQuery$repository$pullRequest$author$$EnterpriseUserAccount)
         enterpriseUserAccount,
-    required _T Function(
-            Query$allPullRequests$repository$pullRequests$nodes$author$$Mannequin)
+    required _T Function(Query$PRQuery$repository$pullRequest$author$$Mannequin)
         mannequin,
     required _T Function(
-            Query$allPullRequests$repository$pullRequests$nodes$author$$Organization)
+            Query$PRQuery$repository$pullRequest$author$$Organization)
         organization,
-    required _T Function(
-            Query$allPullRequests$repository$pullRequests$nodes$author$$User)
+    required _T Function(Query$PRQuery$repository$pullRequest$author$$User)
         user,
     required _T Function() orElse,
   }) {
     switch ($__typename) {
       case "Bot":
-        return bot(this
-            as Query$allPullRequests$repository$pullRequests$nodes$author$$Bot);
+        return bot(this as Query$PRQuery$repository$pullRequest$author$$Bot);
 
       case "EnterpriseUserAccount":
         return enterpriseUserAccount(this
-            as Query$allPullRequests$repository$pullRequests$nodes$author$$EnterpriseUserAccount);
+            as Query$PRQuery$repository$pullRequest$author$$EnterpriseUserAccount);
 
       case "Mannequin":
-        return mannequin(this
-            as Query$allPullRequests$repository$pullRequests$nodes$author$$Mannequin);
+        return mannequin(
+            this as Query$PRQuery$repository$pullRequest$author$$Mannequin);
 
       case "Organization":
-        return organization(this
-            as Query$allPullRequests$repository$pullRequests$nodes$author$$Organization);
+        return organization(
+            this as Query$PRQuery$repository$pullRequest$author$$Organization);
 
       case "User":
-        return user(this
-            as Query$allPullRequests$repository$pullRequests$nodes$author$$User);
+        return user(this as Query$PRQuery$repository$pullRequest$author$$User);
 
       default:
         return orElse();
@@ -14340,28 +14145,21 @@ extension UtilityExtension$Query$allPullRequests$repository$pullRequests$nodes$a
   }
 
   _T maybeWhen<_T>({
+    _T Function(Query$PRQuery$repository$pullRequest$author$$Bot)? bot,
     _T Function(
-            Query$allPullRequests$repository$pullRequests$nodes$author$$Bot)?
-        bot,
-    _T Function(
-            Query$allPullRequests$repository$pullRequests$nodes$author$$EnterpriseUserAccount)?
+            Query$PRQuery$repository$pullRequest$author$$EnterpriseUserAccount)?
         enterpriseUserAccount,
-    _T Function(
-            Query$allPullRequests$repository$pullRequests$nodes$author$$Mannequin)?
+    _T Function(Query$PRQuery$repository$pullRequest$author$$Mannequin)?
         mannequin,
-    _T Function(
-            Query$allPullRequests$repository$pullRequests$nodes$author$$Organization)?
+    _T Function(Query$PRQuery$repository$pullRequest$author$$Organization)?
         organization,
-    _T Function(
-            Query$allPullRequests$repository$pullRequests$nodes$author$$User)?
-        user,
+    _T Function(Query$PRQuery$repository$pullRequest$author$$User)? user,
     required _T Function() orElse,
   }) {
     switch ($__typename) {
       case "Bot":
         if (bot != null) {
-          return bot(this
-              as Query$allPullRequests$repository$pullRequests$nodes$author$$Bot);
+          return bot(this as Query$PRQuery$repository$pullRequest$author$$Bot);
         } else {
           return orElse();
         }
@@ -14369,15 +14167,15 @@ extension UtilityExtension$Query$allPullRequests$repository$pullRequests$nodes$a
       case "EnterpriseUserAccount":
         if (enterpriseUserAccount != null) {
           return enterpriseUserAccount(this
-              as Query$allPullRequests$repository$pullRequests$nodes$author$$EnterpriseUserAccount);
+              as Query$PRQuery$repository$pullRequest$author$$EnterpriseUserAccount);
         } else {
           return orElse();
         }
 
       case "Mannequin":
         if (mannequin != null) {
-          return mannequin(this
-              as Query$allPullRequests$repository$pullRequests$nodes$author$$Mannequin);
+          return mannequin(
+              this as Query$PRQuery$repository$pullRequest$author$$Mannequin);
         } else {
           return orElse();
         }
@@ -14385,15 +14183,15 @@ extension UtilityExtension$Query$allPullRequests$repository$pullRequests$nodes$a
       case "Organization":
         if (organization != null) {
           return organization(this
-              as Query$allPullRequests$repository$pullRequests$nodes$author$$Organization);
+              as Query$PRQuery$repository$pullRequest$author$$Organization);
         } else {
           return orElse();
         }
 
       case "User":
         if (user != null) {
-          return user(this
-              as Query$allPullRequests$repository$pullRequests$nodes$author$$User);
+          return user(
+              this as Query$PRQuery$repository$pullRequest$author$$User);
         } else {
           return orElse();
         }
@@ -14404,17 +14202,14 @@ extension UtilityExtension$Query$allPullRequests$repository$pullRequests$nodes$a
   }
 }
 
-abstract class CopyWith$Query$allPullRequests$repository$pullRequests$nodes$author<
-    TRes> {
-  factory CopyWith$Query$allPullRequests$repository$pullRequests$nodes$author(
-    Query$allPullRequests$repository$pullRequests$nodes$author instance,
-    TRes Function(Query$allPullRequests$repository$pullRequests$nodes$author)
-        then,
-  ) = _CopyWithImpl$Query$allPullRequests$repository$pullRequests$nodes$author;
+abstract class CopyWith$Query$PRQuery$repository$pullRequest$author<TRes> {
+  factory CopyWith$Query$PRQuery$repository$pullRequest$author(
+    Query$PRQuery$repository$pullRequest$author instance,
+    TRes Function(Query$PRQuery$repository$pullRequest$author) then,
+  ) = _CopyWithImpl$Query$PRQuery$repository$pullRequest$author;
 
-  factory CopyWith$Query$allPullRequests$repository$pullRequests$nodes$author.stub(
-          TRes res) =
-      _CopyWithStubImpl$Query$allPullRequests$repository$pullRequests$nodes$author;
+  factory CopyWith$Query$PRQuery$repository$pullRequest$author.stub(TRes res) =
+      _CopyWithStubImpl$Query$PRQuery$repository$pullRequest$author;
 
   TRes call({
     String? avatarUrl,
@@ -14422,20 +14217,16 @@ abstract class CopyWith$Query$allPullRequests$repository$pullRequests$nodes$auth
   });
 }
 
-class _CopyWithImpl$Query$allPullRequests$repository$pullRequests$nodes$author<
-        TRes>
-    implements
-        CopyWith$Query$allPullRequests$repository$pullRequests$nodes$author<
-            TRes> {
-  _CopyWithImpl$Query$allPullRequests$repository$pullRequests$nodes$author(
+class _CopyWithImpl$Query$PRQuery$repository$pullRequest$author<TRes>
+    implements CopyWith$Query$PRQuery$repository$pullRequest$author<TRes> {
+  _CopyWithImpl$Query$PRQuery$repository$pullRequest$author(
     this._instance,
     this._then,
   );
 
-  final Query$allPullRequests$repository$pullRequests$nodes$author _instance;
+  final Query$PRQuery$repository$pullRequest$author _instance;
 
-  final TRes Function(
-      Query$allPullRequests$repository$pullRequests$nodes$author) _then;
+  final TRes Function(Query$PRQuery$repository$pullRequest$author) _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
@@ -14443,7 +14234,7 @@ class _CopyWithImpl$Query$allPullRequests$repository$pullRequests$nodes$author<
     Object? avatarUrl = _undefined,
     Object? $__typename = _undefined,
   }) =>
-      _then(Query$allPullRequests$repository$pullRequests$nodes$author(
+      _then(Query$PRQuery$repository$pullRequest$author(
         avatarUrl: avatarUrl == _undefined || avatarUrl == null
             ? _instance.avatarUrl
             : (avatarUrl as String),
@@ -14453,13 +14244,9 @@ class _CopyWithImpl$Query$allPullRequests$repository$pullRequests$nodes$author<
       ));
 }
 
-class _CopyWithStubImpl$Query$allPullRequests$repository$pullRequests$nodes$author<
-        TRes>
-    implements
-        CopyWith$Query$allPullRequests$repository$pullRequests$nodes$author<
-            TRes> {
-  _CopyWithStubImpl$Query$allPullRequests$repository$pullRequests$nodes$author(
-      this._res);
+class _CopyWithStubImpl$Query$PRQuery$repository$pullRequest$author<TRes>
+    implements CopyWith$Query$PRQuery$repository$pullRequest$author<TRes> {
+  _CopyWithStubImpl$Query$PRQuery$repository$pullRequest$author(this._res);
 
   TRes _res;
 
@@ -14470,20 +14257,20 @@ class _CopyWithStubImpl$Query$allPullRequests$repository$pullRequests$nodes$auth
       _res;
 }
 
-class Query$allPullRequests$repository$pullRequests$nodes$author$$Bot
+class Query$PRQuery$repository$pullRequest$author$$Bot
     implements
         Fragment$PRMessage$$PullRequest$author$$Bot,
-        Query$allPullRequests$repository$pullRequests$nodes$author {
-  Query$allPullRequests$repository$pullRequests$nodes$author$$Bot({
+        Query$PRQuery$repository$pullRequest$author {
+  Query$PRQuery$repository$pullRequest$author$$Bot({
     required this.avatarUrl,
     this.$__typename = 'Bot',
   });
 
-  factory Query$allPullRequests$repository$pullRequests$nodes$author$$Bot.fromJson(
+  factory Query$PRQuery$repository$pullRequest$author$$Bot.fromJson(
       Map<String, dynamic> json) {
     final l$avatarUrl = json['avatarUrl'];
     final l$$__typename = json['__typename'];
-    return Query$allPullRequests$repository$pullRequests$nodes$author$$Bot(
+    return Query$PRQuery$repository$pullRequest$author$$Bot(
       avatarUrl: (l$avatarUrl as String),
       $__typename: (l$$__typename as String),
     );
@@ -14517,8 +14304,7 @@ class Query$allPullRequests$repository$pullRequests$nodes$author$$Bot
     if (identical(this, other)) {
       return true;
     }
-    if (!(other
-            is Query$allPullRequests$repository$pullRequests$nodes$author$$Bot) ||
+    if (!(other is Query$PRQuery$repository$pullRequest$author$$Bot) ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -14536,29 +14322,25 @@ class Query$allPullRequests$repository$pullRequests$nodes$author$$Bot
   }
 }
 
-extension UtilityExtension$Query$allPullRequests$repository$pullRequests$nodes$author$$Bot
-    on Query$allPullRequests$repository$pullRequests$nodes$author$$Bot {
-  CopyWith$Query$allPullRequests$repository$pullRequests$nodes$author$$Bot<
-          Query$allPullRequests$repository$pullRequests$nodes$author$$Bot>
-      get copyWith =>
-          CopyWith$Query$allPullRequests$repository$pullRequests$nodes$author$$Bot(
+extension UtilityExtension$Query$PRQuery$repository$pullRequest$author$$Bot
+    on Query$PRQuery$repository$pullRequest$author$$Bot {
+  CopyWith$Query$PRQuery$repository$pullRequest$author$$Bot<
+          Query$PRQuery$repository$pullRequest$author$$Bot>
+      get copyWith => CopyWith$Query$PRQuery$repository$pullRequest$author$$Bot(
             this,
             (i) => i,
           );
 }
 
-abstract class CopyWith$Query$allPullRequests$repository$pullRequests$nodes$author$$Bot<
-    TRes> {
-  factory CopyWith$Query$allPullRequests$repository$pullRequests$nodes$author$$Bot(
-    Query$allPullRequests$repository$pullRequests$nodes$author$$Bot instance,
-    TRes Function(
-            Query$allPullRequests$repository$pullRequests$nodes$author$$Bot)
-        then,
-  ) = _CopyWithImpl$Query$allPullRequests$repository$pullRequests$nodes$author$$Bot;
+abstract class CopyWith$Query$PRQuery$repository$pullRequest$author$$Bot<TRes> {
+  factory CopyWith$Query$PRQuery$repository$pullRequest$author$$Bot(
+    Query$PRQuery$repository$pullRequest$author$$Bot instance,
+    TRes Function(Query$PRQuery$repository$pullRequest$author$$Bot) then,
+  ) = _CopyWithImpl$Query$PRQuery$repository$pullRequest$author$$Bot;
 
-  factory CopyWith$Query$allPullRequests$repository$pullRequests$nodes$author$$Bot.stub(
+  factory CopyWith$Query$PRQuery$repository$pullRequest$author$$Bot.stub(
           TRes res) =
-      _CopyWithStubImpl$Query$allPullRequests$repository$pullRequests$nodes$author$$Bot;
+      _CopyWithStubImpl$Query$PRQuery$repository$pullRequest$author$$Bot;
 
   TRes call({
     String? avatarUrl,
@@ -14566,21 +14348,16 @@ abstract class CopyWith$Query$allPullRequests$repository$pullRequests$nodes$auth
   });
 }
 
-class _CopyWithImpl$Query$allPullRequests$repository$pullRequests$nodes$author$$Bot<
-        TRes>
-    implements
-        CopyWith$Query$allPullRequests$repository$pullRequests$nodes$author$$Bot<
-            TRes> {
-  _CopyWithImpl$Query$allPullRequests$repository$pullRequests$nodes$author$$Bot(
+class _CopyWithImpl$Query$PRQuery$repository$pullRequest$author$$Bot<TRes>
+    implements CopyWith$Query$PRQuery$repository$pullRequest$author$$Bot<TRes> {
+  _CopyWithImpl$Query$PRQuery$repository$pullRequest$author$$Bot(
     this._instance,
     this._then,
   );
 
-  final Query$allPullRequests$repository$pullRequests$nodes$author$$Bot
-      _instance;
+  final Query$PRQuery$repository$pullRequest$author$$Bot _instance;
 
-  final TRes Function(
-      Query$allPullRequests$repository$pullRequests$nodes$author$$Bot) _then;
+  final TRes Function(Query$PRQuery$repository$pullRequest$author$$Bot) _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
@@ -14588,7 +14365,7 @@ class _CopyWithImpl$Query$allPullRequests$repository$pullRequests$nodes$author$$
     Object? avatarUrl = _undefined,
     Object? $__typename = _undefined,
   }) =>
-      _then(Query$allPullRequests$repository$pullRequests$nodes$author$$Bot(
+      _then(Query$PRQuery$repository$pullRequest$author$$Bot(
         avatarUrl: avatarUrl == _undefined || avatarUrl == null
             ? _instance.avatarUrl
             : (avatarUrl as String),
@@ -14598,13 +14375,9 @@ class _CopyWithImpl$Query$allPullRequests$repository$pullRequests$nodes$author$$
       ));
 }
 
-class _CopyWithStubImpl$Query$allPullRequests$repository$pullRequests$nodes$author$$Bot<
-        TRes>
-    implements
-        CopyWith$Query$allPullRequests$repository$pullRequests$nodes$author$$Bot<
-            TRes> {
-  _CopyWithStubImpl$Query$allPullRequests$repository$pullRequests$nodes$author$$Bot(
-      this._res);
+class _CopyWithStubImpl$Query$PRQuery$repository$pullRequest$author$$Bot<TRes>
+    implements CopyWith$Query$PRQuery$repository$pullRequest$author$$Bot<TRes> {
+  _CopyWithStubImpl$Query$PRQuery$repository$pullRequest$author$$Bot(this._res);
 
   TRes _res;
 
@@ -14615,20 +14388,20 @@ class _CopyWithStubImpl$Query$allPullRequests$repository$pullRequests$nodes$auth
       _res;
 }
 
-class Query$allPullRequests$repository$pullRequests$nodes$author$$EnterpriseUserAccount
+class Query$PRQuery$repository$pullRequest$author$$EnterpriseUserAccount
     implements
         Fragment$PRMessage$$PullRequest$author$$EnterpriseUserAccount,
-        Query$allPullRequests$repository$pullRequests$nodes$author {
-  Query$allPullRequests$repository$pullRequests$nodes$author$$EnterpriseUserAccount({
+        Query$PRQuery$repository$pullRequest$author {
+  Query$PRQuery$repository$pullRequest$author$$EnterpriseUserAccount({
     required this.avatarUrl,
     this.$__typename = 'EnterpriseUserAccount',
   });
 
-  factory Query$allPullRequests$repository$pullRequests$nodes$author$$EnterpriseUserAccount.fromJson(
+  factory Query$PRQuery$repository$pullRequest$author$$EnterpriseUserAccount.fromJson(
       Map<String, dynamic> json) {
     final l$avatarUrl = json['avatarUrl'];
     final l$$__typename = json['__typename'];
-    return Query$allPullRequests$repository$pullRequests$nodes$author$$EnterpriseUserAccount(
+    return Query$PRQuery$repository$pullRequest$author$$EnterpriseUserAccount(
       avatarUrl: (l$avatarUrl as String),
       $__typename: (l$$__typename as String),
     );
@@ -14663,7 +14436,7 @@ class Query$allPullRequests$repository$pullRequests$nodes$author$$EnterpriseUser
       return true;
     }
     if (!(other
-            is Query$allPullRequests$repository$pullRequests$nodes$author$$EnterpriseUserAccount) ||
+            is Query$PRQuery$repository$pullRequest$author$$EnterpriseUserAccount) ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -14681,30 +14454,29 @@ class Query$allPullRequests$repository$pullRequests$nodes$author$$EnterpriseUser
   }
 }
 
-extension UtilityExtension$Query$allPullRequests$repository$pullRequests$nodes$author$$EnterpriseUserAccount
-    on Query$allPullRequests$repository$pullRequests$nodes$author$$EnterpriseUserAccount {
-  CopyWith$Query$allPullRequests$repository$pullRequests$nodes$author$$EnterpriseUserAccount<
-          Query$allPullRequests$repository$pullRequests$nodes$author$$EnterpriseUserAccount>
+extension UtilityExtension$Query$PRQuery$repository$pullRequest$author$$EnterpriseUserAccount
+    on Query$PRQuery$repository$pullRequest$author$$EnterpriseUserAccount {
+  CopyWith$Query$PRQuery$repository$pullRequest$author$$EnterpriseUserAccount<
+          Query$PRQuery$repository$pullRequest$author$$EnterpriseUserAccount>
       get copyWith =>
-          CopyWith$Query$allPullRequests$repository$pullRequests$nodes$author$$EnterpriseUserAccount(
+          CopyWith$Query$PRQuery$repository$pullRequest$author$$EnterpriseUserAccount(
             this,
             (i) => i,
           );
 }
 
-abstract class CopyWith$Query$allPullRequests$repository$pullRequests$nodes$author$$EnterpriseUserAccount<
+abstract class CopyWith$Query$PRQuery$repository$pullRequest$author$$EnterpriseUserAccount<
     TRes> {
-  factory CopyWith$Query$allPullRequests$repository$pullRequests$nodes$author$$EnterpriseUserAccount(
-    Query$allPullRequests$repository$pullRequests$nodes$author$$EnterpriseUserAccount
-        instance,
+  factory CopyWith$Query$PRQuery$repository$pullRequest$author$$EnterpriseUserAccount(
+    Query$PRQuery$repository$pullRequest$author$$EnterpriseUserAccount instance,
     TRes Function(
-            Query$allPullRequests$repository$pullRequests$nodes$author$$EnterpriseUserAccount)
+            Query$PRQuery$repository$pullRequest$author$$EnterpriseUserAccount)
         then,
-  ) = _CopyWithImpl$Query$allPullRequests$repository$pullRequests$nodes$author$$EnterpriseUserAccount;
+  ) = _CopyWithImpl$Query$PRQuery$repository$pullRequest$author$$EnterpriseUserAccount;
 
-  factory CopyWith$Query$allPullRequests$repository$pullRequests$nodes$author$$EnterpriseUserAccount.stub(
+  factory CopyWith$Query$PRQuery$repository$pullRequest$author$$EnterpriseUserAccount.stub(
           TRes res) =
-      _CopyWithStubImpl$Query$allPullRequests$repository$pullRequests$nodes$author$$EnterpriseUserAccount;
+      _CopyWithStubImpl$Query$PRQuery$repository$pullRequest$author$$EnterpriseUserAccount;
 
   TRes call({
     String? avatarUrl,
@@ -14712,22 +14484,21 @@ abstract class CopyWith$Query$allPullRequests$repository$pullRequests$nodes$auth
   });
 }
 
-class _CopyWithImpl$Query$allPullRequests$repository$pullRequests$nodes$author$$EnterpriseUserAccount<
+class _CopyWithImpl$Query$PRQuery$repository$pullRequest$author$$EnterpriseUserAccount<
         TRes>
     implements
-        CopyWith$Query$allPullRequests$repository$pullRequests$nodes$author$$EnterpriseUserAccount<
+        CopyWith$Query$PRQuery$repository$pullRequest$author$$EnterpriseUserAccount<
             TRes> {
-  _CopyWithImpl$Query$allPullRequests$repository$pullRequests$nodes$author$$EnterpriseUserAccount(
+  _CopyWithImpl$Query$PRQuery$repository$pullRequest$author$$EnterpriseUserAccount(
     this._instance,
     this._then,
   );
 
-  final Query$allPullRequests$repository$pullRequests$nodes$author$$EnterpriseUserAccount
+  final Query$PRQuery$repository$pullRequest$author$$EnterpriseUserAccount
       _instance;
 
   final TRes Function(
-          Query$allPullRequests$repository$pullRequests$nodes$author$$EnterpriseUserAccount)
-      _then;
+      Query$PRQuery$repository$pullRequest$author$$EnterpriseUserAccount) _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
@@ -14735,8 +14506,7 @@ class _CopyWithImpl$Query$allPullRequests$repository$pullRequests$nodes$author$$
     Object? avatarUrl = _undefined,
     Object? $__typename = _undefined,
   }) =>
-      _then(
-          Query$allPullRequests$repository$pullRequests$nodes$author$$EnterpriseUserAccount(
+      _then(Query$PRQuery$repository$pullRequest$author$$EnterpriseUserAccount(
         avatarUrl: avatarUrl == _undefined || avatarUrl == null
             ? _instance.avatarUrl
             : (avatarUrl as String),
@@ -14746,12 +14516,12 @@ class _CopyWithImpl$Query$allPullRequests$repository$pullRequests$nodes$author$$
       ));
 }
 
-class _CopyWithStubImpl$Query$allPullRequests$repository$pullRequests$nodes$author$$EnterpriseUserAccount<
+class _CopyWithStubImpl$Query$PRQuery$repository$pullRequest$author$$EnterpriseUserAccount<
         TRes>
     implements
-        CopyWith$Query$allPullRequests$repository$pullRequests$nodes$author$$EnterpriseUserAccount<
+        CopyWith$Query$PRQuery$repository$pullRequest$author$$EnterpriseUserAccount<
             TRes> {
-  _CopyWithStubImpl$Query$allPullRequests$repository$pullRequests$nodes$author$$EnterpriseUserAccount(
+  _CopyWithStubImpl$Query$PRQuery$repository$pullRequest$author$$EnterpriseUserAccount(
       this._res);
 
   TRes _res;
@@ -14763,20 +14533,20 @@ class _CopyWithStubImpl$Query$allPullRequests$repository$pullRequests$nodes$auth
       _res;
 }
 
-class Query$allPullRequests$repository$pullRequests$nodes$author$$Mannequin
+class Query$PRQuery$repository$pullRequest$author$$Mannequin
     implements
         Fragment$PRMessage$$PullRequest$author$$Mannequin,
-        Query$allPullRequests$repository$pullRequests$nodes$author {
-  Query$allPullRequests$repository$pullRequests$nodes$author$$Mannequin({
+        Query$PRQuery$repository$pullRequest$author {
+  Query$PRQuery$repository$pullRequest$author$$Mannequin({
     required this.avatarUrl,
     this.$__typename = 'Mannequin',
   });
 
-  factory Query$allPullRequests$repository$pullRequests$nodes$author$$Mannequin.fromJson(
+  factory Query$PRQuery$repository$pullRequest$author$$Mannequin.fromJson(
       Map<String, dynamic> json) {
     final l$avatarUrl = json['avatarUrl'];
     final l$$__typename = json['__typename'];
-    return Query$allPullRequests$repository$pullRequests$nodes$author$$Mannequin(
+    return Query$PRQuery$repository$pullRequest$author$$Mannequin(
       avatarUrl: (l$avatarUrl as String),
       $__typename: (l$$__typename as String),
     );
@@ -14810,8 +14580,7 @@ class Query$allPullRequests$repository$pullRequests$nodes$author$$Mannequin
     if (identical(this, other)) {
       return true;
     }
-    if (!(other
-            is Query$allPullRequests$repository$pullRequests$nodes$author$$Mannequin) ||
+    if (!(other is Query$PRQuery$repository$pullRequest$author$$Mannequin) ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -14829,30 +14598,27 @@ class Query$allPullRequests$repository$pullRequests$nodes$author$$Mannequin
   }
 }
 
-extension UtilityExtension$Query$allPullRequests$repository$pullRequests$nodes$author$$Mannequin
-    on Query$allPullRequests$repository$pullRequests$nodes$author$$Mannequin {
-  CopyWith$Query$allPullRequests$repository$pullRequests$nodes$author$$Mannequin<
-          Query$allPullRequests$repository$pullRequests$nodes$author$$Mannequin>
+extension UtilityExtension$Query$PRQuery$repository$pullRequest$author$$Mannequin
+    on Query$PRQuery$repository$pullRequest$author$$Mannequin {
+  CopyWith$Query$PRQuery$repository$pullRequest$author$$Mannequin<
+          Query$PRQuery$repository$pullRequest$author$$Mannequin>
       get copyWith =>
-          CopyWith$Query$allPullRequests$repository$pullRequests$nodes$author$$Mannequin(
+          CopyWith$Query$PRQuery$repository$pullRequest$author$$Mannequin(
             this,
             (i) => i,
           );
 }
 
-abstract class CopyWith$Query$allPullRequests$repository$pullRequests$nodes$author$$Mannequin<
+abstract class CopyWith$Query$PRQuery$repository$pullRequest$author$$Mannequin<
     TRes> {
-  factory CopyWith$Query$allPullRequests$repository$pullRequests$nodes$author$$Mannequin(
-    Query$allPullRequests$repository$pullRequests$nodes$author$$Mannequin
-        instance,
-    TRes Function(
-            Query$allPullRequests$repository$pullRequests$nodes$author$$Mannequin)
-        then,
-  ) = _CopyWithImpl$Query$allPullRequests$repository$pullRequests$nodes$author$$Mannequin;
+  factory CopyWith$Query$PRQuery$repository$pullRequest$author$$Mannequin(
+    Query$PRQuery$repository$pullRequest$author$$Mannequin instance,
+    TRes Function(Query$PRQuery$repository$pullRequest$author$$Mannequin) then,
+  ) = _CopyWithImpl$Query$PRQuery$repository$pullRequest$author$$Mannequin;
 
-  factory CopyWith$Query$allPullRequests$repository$pullRequests$nodes$author$$Mannequin.stub(
+  factory CopyWith$Query$PRQuery$repository$pullRequest$author$$Mannequin.stub(
           TRes res) =
-      _CopyWithStubImpl$Query$allPullRequests$repository$pullRequests$nodes$author$$Mannequin;
+      _CopyWithStubImpl$Query$PRQuery$repository$pullRequest$author$$Mannequin;
 
   TRes call({
     String? avatarUrl,
@@ -14860,21 +14626,17 @@ abstract class CopyWith$Query$allPullRequests$repository$pullRequests$nodes$auth
   });
 }
 
-class _CopyWithImpl$Query$allPullRequests$repository$pullRequests$nodes$author$$Mannequin<
-        TRes>
+class _CopyWithImpl$Query$PRQuery$repository$pullRequest$author$$Mannequin<TRes>
     implements
-        CopyWith$Query$allPullRequests$repository$pullRequests$nodes$author$$Mannequin<
-            TRes> {
-  _CopyWithImpl$Query$allPullRequests$repository$pullRequests$nodes$author$$Mannequin(
+        CopyWith$Query$PRQuery$repository$pullRequest$author$$Mannequin<TRes> {
+  _CopyWithImpl$Query$PRQuery$repository$pullRequest$author$$Mannequin(
     this._instance,
     this._then,
   );
 
-  final Query$allPullRequests$repository$pullRequests$nodes$author$$Mannequin
-      _instance;
+  final Query$PRQuery$repository$pullRequest$author$$Mannequin _instance;
 
-  final TRes Function(
-          Query$allPullRequests$repository$pullRequests$nodes$author$$Mannequin)
+  final TRes Function(Query$PRQuery$repository$pullRequest$author$$Mannequin)
       _then;
 
   static const _undefined = <dynamic, dynamic>{};
@@ -14883,8 +14645,7 @@ class _CopyWithImpl$Query$allPullRequests$repository$pullRequests$nodes$author$$
     Object? avatarUrl = _undefined,
     Object? $__typename = _undefined,
   }) =>
-      _then(
-          Query$allPullRequests$repository$pullRequests$nodes$author$$Mannequin(
+      _then(Query$PRQuery$repository$pullRequest$author$$Mannequin(
         avatarUrl: avatarUrl == _undefined || avatarUrl == null
             ? _instance.avatarUrl
             : (avatarUrl as String),
@@ -14894,12 +14655,11 @@ class _CopyWithImpl$Query$allPullRequests$repository$pullRequests$nodes$author$$
       ));
 }
 
-class _CopyWithStubImpl$Query$allPullRequests$repository$pullRequests$nodes$author$$Mannequin<
+class _CopyWithStubImpl$Query$PRQuery$repository$pullRequest$author$$Mannequin<
         TRes>
     implements
-        CopyWith$Query$allPullRequests$repository$pullRequests$nodes$author$$Mannequin<
-            TRes> {
-  _CopyWithStubImpl$Query$allPullRequests$repository$pullRequests$nodes$author$$Mannequin(
+        CopyWith$Query$PRQuery$repository$pullRequest$author$$Mannequin<TRes> {
+  _CopyWithStubImpl$Query$PRQuery$repository$pullRequest$author$$Mannequin(
       this._res);
 
   TRes _res;
@@ -14911,20 +14671,20 @@ class _CopyWithStubImpl$Query$allPullRequests$repository$pullRequests$nodes$auth
       _res;
 }
 
-class Query$allPullRequests$repository$pullRequests$nodes$author$$Organization
+class Query$PRQuery$repository$pullRequest$author$$Organization
     implements
         Fragment$PRMessage$$PullRequest$author$$Organization,
-        Query$allPullRequests$repository$pullRequests$nodes$author {
-  Query$allPullRequests$repository$pullRequests$nodes$author$$Organization({
+        Query$PRQuery$repository$pullRequest$author {
+  Query$PRQuery$repository$pullRequest$author$$Organization({
     required this.avatarUrl,
     this.$__typename = 'Organization',
   });
 
-  factory Query$allPullRequests$repository$pullRequests$nodes$author$$Organization.fromJson(
+  factory Query$PRQuery$repository$pullRequest$author$$Organization.fromJson(
       Map<String, dynamic> json) {
     final l$avatarUrl = json['avatarUrl'];
     final l$$__typename = json['__typename'];
-    return Query$allPullRequests$repository$pullRequests$nodes$author$$Organization(
+    return Query$PRQuery$repository$pullRequest$author$$Organization(
       avatarUrl: (l$avatarUrl as String),
       $__typename: (l$$__typename as String),
     );
@@ -14958,8 +14718,7 @@ class Query$allPullRequests$repository$pullRequests$nodes$author$$Organization
     if (identical(this, other)) {
       return true;
     }
-    if (!(other
-            is Query$allPullRequests$repository$pullRequests$nodes$author$$Organization) ||
+    if (!(other is Query$PRQuery$repository$pullRequest$author$$Organization) ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -14977,30 +14736,28 @@ class Query$allPullRequests$repository$pullRequests$nodes$author$$Organization
   }
 }
 
-extension UtilityExtension$Query$allPullRequests$repository$pullRequests$nodes$author$$Organization
-    on Query$allPullRequests$repository$pullRequests$nodes$author$$Organization {
-  CopyWith$Query$allPullRequests$repository$pullRequests$nodes$author$$Organization<
-          Query$allPullRequests$repository$pullRequests$nodes$author$$Organization>
+extension UtilityExtension$Query$PRQuery$repository$pullRequest$author$$Organization
+    on Query$PRQuery$repository$pullRequest$author$$Organization {
+  CopyWith$Query$PRQuery$repository$pullRequest$author$$Organization<
+          Query$PRQuery$repository$pullRequest$author$$Organization>
       get copyWith =>
-          CopyWith$Query$allPullRequests$repository$pullRequests$nodes$author$$Organization(
+          CopyWith$Query$PRQuery$repository$pullRequest$author$$Organization(
             this,
             (i) => i,
           );
 }
 
-abstract class CopyWith$Query$allPullRequests$repository$pullRequests$nodes$author$$Organization<
+abstract class CopyWith$Query$PRQuery$repository$pullRequest$author$$Organization<
     TRes> {
-  factory CopyWith$Query$allPullRequests$repository$pullRequests$nodes$author$$Organization(
-    Query$allPullRequests$repository$pullRequests$nodes$author$$Organization
-        instance,
-    TRes Function(
-            Query$allPullRequests$repository$pullRequests$nodes$author$$Organization)
+  factory CopyWith$Query$PRQuery$repository$pullRequest$author$$Organization(
+    Query$PRQuery$repository$pullRequest$author$$Organization instance,
+    TRes Function(Query$PRQuery$repository$pullRequest$author$$Organization)
         then,
-  ) = _CopyWithImpl$Query$allPullRequests$repository$pullRequests$nodes$author$$Organization;
+  ) = _CopyWithImpl$Query$PRQuery$repository$pullRequest$author$$Organization;
 
-  factory CopyWith$Query$allPullRequests$repository$pullRequests$nodes$author$$Organization.stub(
+  factory CopyWith$Query$PRQuery$repository$pullRequest$author$$Organization.stub(
           TRes res) =
-      _CopyWithStubImpl$Query$allPullRequests$repository$pullRequests$nodes$author$$Organization;
+      _CopyWithStubImpl$Query$PRQuery$repository$pullRequest$author$$Organization;
 
   TRes call({
     String? avatarUrl,
@@ -15008,21 +14765,19 @@ abstract class CopyWith$Query$allPullRequests$repository$pullRequests$nodes$auth
   });
 }
 
-class _CopyWithImpl$Query$allPullRequests$repository$pullRequests$nodes$author$$Organization<
+class _CopyWithImpl$Query$PRQuery$repository$pullRequest$author$$Organization<
         TRes>
     implements
-        CopyWith$Query$allPullRequests$repository$pullRequests$nodes$author$$Organization<
+        CopyWith$Query$PRQuery$repository$pullRequest$author$$Organization<
             TRes> {
-  _CopyWithImpl$Query$allPullRequests$repository$pullRequests$nodes$author$$Organization(
+  _CopyWithImpl$Query$PRQuery$repository$pullRequest$author$$Organization(
     this._instance,
     this._then,
   );
 
-  final Query$allPullRequests$repository$pullRequests$nodes$author$$Organization
-      _instance;
+  final Query$PRQuery$repository$pullRequest$author$$Organization _instance;
 
-  final TRes Function(
-          Query$allPullRequests$repository$pullRequests$nodes$author$$Organization)
+  final TRes Function(Query$PRQuery$repository$pullRequest$author$$Organization)
       _then;
 
   static const _undefined = <dynamic, dynamic>{};
@@ -15031,8 +14786,7 @@ class _CopyWithImpl$Query$allPullRequests$repository$pullRequests$nodes$author$$
     Object? avatarUrl = _undefined,
     Object? $__typename = _undefined,
   }) =>
-      _then(
-          Query$allPullRequests$repository$pullRequests$nodes$author$$Organization(
+      _then(Query$PRQuery$repository$pullRequest$author$$Organization(
         avatarUrl: avatarUrl == _undefined || avatarUrl == null
             ? _instance.avatarUrl
             : (avatarUrl as String),
@@ -15042,12 +14796,12 @@ class _CopyWithImpl$Query$allPullRequests$repository$pullRequests$nodes$author$$
       ));
 }
 
-class _CopyWithStubImpl$Query$allPullRequests$repository$pullRequests$nodes$author$$Organization<
+class _CopyWithStubImpl$Query$PRQuery$repository$pullRequest$author$$Organization<
         TRes>
     implements
-        CopyWith$Query$allPullRequests$repository$pullRequests$nodes$author$$Organization<
+        CopyWith$Query$PRQuery$repository$pullRequest$author$$Organization<
             TRes> {
-  _CopyWithStubImpl$Query$allPullRequests$repository$pullRequests$nodes$author$$Organization(
+  _CopyWithStubImpl$Query$PRQuery$repository$pullRequest$author$$Organization(
       this._res);
 
   TRes _res;
@@ -15059,20 +14813,20 @@ class _CopyWithStubImpl$Query$allPullRequests$repository$pullRequests$nodes$auth
       _res;
 }
 
-class Query$allPullRequests$repository$pullRequests$nodes$author$$User
+class Query$PRQuery$repository$pullRequest$author$$User
     implements
         Fragment$PRMessage$$PullRequest$author$$User,
-        Query$allPullRequests$repository$pullRequests$nodes$author {
-  Query$allPullRequests$repository$pullRequests$nodes$author$$User({
+        Query$PRQuery$repository$pullRequest$author {
+  Query$PRQuery$repository$pullRequest$author$$User({
     required this.avatarUrl,
     this.$__typename = 'User',
   });
 
-  factory Query$allPullRequests$repository$pullRequests$nodes$author$$User.fromJson(
+  factory Query$PRQuery$repository$pullRequest$author$$User.fromJson(
       Map<String, dynamic> json) {
     final l$avatarUrl = json['avatarUrl'];
     final l$$__typename = json['__typename'];
-    return Query$allPullRequests$repository$pullRequests$nodes$author$$User(
+    return Query$PRQuery$repository$pullRequest$author$$User(
       avatarUrl: (l$avatarUrl as String),
       $__typename: (l$$__typename as String),
     );
@@ -15106,8 +14860,7 @@ class Query$allPullRequests$repository$pullRequests$nodes$author$$User
     if (identical(this, other)) {
       return true;
     }
-    if (!(other
-            is Query$allPullRequests$repository$pullRequests$nodes$author$$User) ||
+    if (!(other is Query$PRQuery$repository$pullRequest$author$$User) ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -15125,29 +14878,27 @@ class Query$allPullRequests$repository$pullRequests$nodes$author$$User
   }
 }
 
-extension UtilityExtension$Query$allPullRequests$repository$pullRequests$nodes$author$$User
-    on Query$allPullRequests$repository$pullRequests$nodes$author$$User {
-  CopyWith$Query$allPullRequests$repository$pullRequests$nodes$author$$User<
-          Query$allPullRequests$repository$pullRequests$nodes$author$$User>
+extension UtilityExtension$Query$PRQuery$repository$pullRequest$author$$User
+    on Query$PRQuery$repository$pullRequest$author$$User {
+  CopyWith$Query$PRQuery$repository$pullRequest$author$$User<
+          Query$PRQuery$repository$pullRequest$author$$User>
       get copyWith =>
-          CopyWith$Query$allPullRequests$repository$pullRequests$nodes$author$$User(
+          CopyWith$Query$PRQuery$repository$pullRequest$author$$User(
             this,
             (i) => i,
           );
 }
 
-abstract class CopyWith$Query$allPullRequests$repository$pullRequests$nodes$author$$User<
+abstract class CopyWith$Query$PRQuery$repository$pullRequest$author$$User<
     TRes> {
-  factory CopyWith$Query$allPullRequests$repository$pullRequests$nodes$author$$User(
-    Query$allPullRequests$repository$pullRequests$nodes$author$$User instance,
-    TRes Function(
-            Query$allPullRequests$repository$pullRequests$nodes$author$$User)
-        then,
-  ) = _CopyWithImpl$Query$allPullRequests$repository$pullRequests$nodes$author$$User;
+  factory CopyWith$Query$PRQuery$repository$pullRequest$author$$User(
+    Query$PRQuery$repository$pullRequest$author$$User instance,
+    TRes Function(Query$PRQuery$repository$pullRequest$author$$User) then,
+  ) = _CopyWithImpl$Query$PRQuery$repository$pullRequest$author$$User;
 
-  factory CopyWith$Query$allPullRequests$repository$pullRequests$nodes$author$$User.stub(
+  factory CopyWith$Query$PRQuery$repository$pullRequest$author$$User.stub(
           TRes res) =
-      _CopyWithStubImpl$Query$allPullRequests$repository$pullRequests$nodes$author$$User;
+      _CopyWithStubImpl$Query$PRQuery$repository$pullRequest$author$$User;
 
   TRes call({
     String? avatarUrl,
@@ -15155,21 +14906,17 @@ abstract class CopyWith$Query$allPullRequests$repository$pullRequests$nodes$auth
   });
 }
 
-class _CopyWithImpl$Query$allPullRequests$repository$pullRequests$nodes$author$$User<
-        TRes>
+class _CopyWithImpl$Query$PRQuery$repository$pullRequest$author$$User<TRes>
     implements
-        CopyWith$Query$allPullRequests$repository$pullRequests$nodes$author$$User<
-            TRes> {
-  _CopyWithImpl$Query$allPullRequests$repository$pullRequests$nodes$author$$User(
+        CopyWith$Query$PRQuery$repository$pullRequest$author$$User<TRes> {
+  _CopyWithImpl$Query$PRQuery$repository$pullRequest$author$$User(
     this._instance,
     this._then,
   );
 
-  final Query$allPullRequests$repository$pullRequests$nodes$author$$User
-      _instance;
+  final Query$PRQuery$repository$pullRequest$author$$User _instance;
 
-  final TRes Function(
-      Query$allPullRequests$repository$pullRequests$nodes$author$$User) _then;
+  final TRes Function(Query$PRQuery$repository$pullRequest$author$$User) _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
@@ -15177,7 +14924,7 @@ class _CopyWithImpl$Query$allPullRequests$repository$pullRequests$nodes$author$$
     Object? avatarUrl = _undefined,
     Object? $__typename = _undefined,
   }) =>
-      _then(Query$allPullRequests$repository$pullRequests$nodes$author$$User(
+      _then(Query$PRQuery$repository$pullRequest$author$$User(
         avatarUrl: avatarUrl == _undefined || avatarUrl == null
             ? _instance.avatarUrl
             : (avatarUrl as String),
@@ -15187,12 +14934,10 @@ class _CopyWithImpl$Query$allPullRequests$repository$pullRequests$nodes$author$$
       ));
 }
 
-class _CopyWithStubImpl$Query$allPullRequests$repository$pullRequests$nodes$author$$User<
-        TRes>
+class _CopyWithStubImpl$Query$PRQuery$repository$pullRequest$author$$User<TRes>
     implements
-        CopyWith$Query$allPullRequests$repository$pullRequests$nodes$author$$User<
-            TRes> {
-  _CopyWithStubImpl$Query$allPullRequests$repository$pullRequests$nodes$author$$User(
+        CopyWith$Query$PRQuery$repository$pullRequest$author$$User<TRes> {
+  _CopyWithStubImpl$Query$PRQuery$repository$pullRequest$author$$User(
       this._res);
 
   TRes _res;
