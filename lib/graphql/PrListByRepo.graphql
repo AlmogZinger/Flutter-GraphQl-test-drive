@@ -1,0 +1,10 @@
+query listOfPr($name : String!,$owner :String!){
+     repository(owner: $owner ,name:$name){
+        pullRequests(first: 100) {
+            nodes{
+                number
+                headRefName
+            }
+        }
+     }
+}

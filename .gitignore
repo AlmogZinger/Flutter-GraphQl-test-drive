@@ -31,6 +31,7 @@ migrate_working_dir/
 .pub/
 /build/
 ../local.dart
+../_generated_/
 
 # Symbolication related
 app.*.symbols
@@ -44,3 +45,43 @@ app.*.map.json
 /android/app/release
 
 lib/local.dart
+lib/graphql/__generated__/allPullRequests.ast.gql.dart
+lib/graphql/__generated__/allPullRequests.data.gql.dart
+lib/graphql/__generated__/allPullRequests.data.gql.g.dart
+lib/graphql/__generated__/allPullRequests.req.gql.dart
+lib/graphql/__generated__/allPullRequests.req.gql.g.dart
+lib/graphql/__generated__/allPullRequests.var.gql.dart
+lib/graphql/__generated__/allPullRequests.var.gql.g.dart
+lib/graphql/__generated__/commentOfPr.ast.gql.dart
+lib/graphql/__generated__/commentOfPr.data.gql.dart
+lib/graphql/__generated__/commentOfPr.data.gql.g.dart
+lib/graphql/__generated__/commentOfPr.req.gql.dart
+lib/graphql/__generated__/commentOfPr.req.gql.g.dart
+lib/graphql/__generated__/commentOfPr.var.gql.dart
+lib/graphql/__generated__/commentOfPr.var.gql.g.dart
+lib/graphql/__generated__/MutationChangeComment.ast.gql.dart
+lib/graphql/__generated__/MutationChangeComment.data.gql.dart
+lib/graphql/__generated__/MutationChangeComment.data.gql.g.dart
+lib/graphql/__generated__/MutationChangeComment.req.gql.dart
+lib/graphql/__generated__/MutationChangeComment.req.gql.g.dart
+lib/graphql/__generated__/MutationChangeComment.var.gql.dart
+lib/graphql/__generated__/MutationChangeComment.var.gql.g.dart
+lib/graphql/__generated__/PrListByRepo.ast.gql.dart
+lib/graphql/__generated__/PrListByRepo.data.gql.dart
+lib/graphql/__generated__/PrListByRepo.data.gql.g.dart
+lib/graphql/__generated__/PrListByRepo.req.gql.dart
+lib/graphql/__generated__/PrListByRepo.req.gql.g.dart
+lib/graphql/__generated__/PrListByRepo.var.gql.dart
+lib/graphql/__generated__/PrListByRepo.var.gql.g.dart
+lib/graphql/__generated__/RepolistByOwner.ast.gql.dart
+lib/graphql/__generated__/RepolistByOwner.data.gql.dart
+lib/graphql/__generated__/RepolistByOwner.data.gql.g.dart
+lib/graphql/__generated__/RepolistByOwner.req.gql.dart
+lib/graphql/__generated__/RepolistByOwner.req.gql.g.dart
+lib/graphql/__generated__/RepolistByOwner.var.gql.dart
+lib/graphql/__generated__/RepolistByOwner.var.gql.g.dart
+lib/graphql/__generated__/schema.docs.ast.gql.dart
+lib/graphql/__generated__/schema.docs.schema.gql.dart
+lib/graphql/__generated__/schema.docs.schema.gql.g.dart
+lib/graphql/__generated__/serializers.gql.dart
+lib/graphql/__generated__/serializers.gql.g.dart
