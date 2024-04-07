@@ -1,0 +1,7 @@
+fragment PRMessage on Comment {
+  author {
+    avatarUrl
+    login
+  }
+  body
+}

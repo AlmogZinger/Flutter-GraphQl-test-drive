@@ -1,5 +1,14 @@
+#import './pr_msg_frag.graphql'
+
 mutation AddComment($commentInput : AddCommentInput!){
-    addComment(commentInput: $commentInput){
-     
+    addComment(input: $commentInput){
+        commentEdge{
+            cursor
+                node{
+                    ...PRMessage
+                }
+            
+        }
     }
 }
+

@@ -4,6 +4,7 @@ query listOfPr($name : String!,$owner :String!){
             nodes{
                 number
                 headRefName
+                title
             }
         }
      }
