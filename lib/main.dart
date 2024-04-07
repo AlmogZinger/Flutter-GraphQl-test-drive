@@ -107,8 +107,6 @@ class MyHomePageState extends State<MyHomePage>{
                           ),
                         ),
                        Expanded(child: RepoList(owner: myController.text)),
-                        //  PullRequeataWidget(nameRepo: nameRepo.isEmpty ? "Students": nameRepo )
-                        //  PullRequeataClientWidget(client : client,name_repo: nameRepo =="" ? "Students" : nameRepo),
                        ]  
                    )
                    ,

@@ -1,9 +1,12 @@
 import 'dart:async';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ferry/ferry.dart';
+import 'package:flutter/widgets.dart';
 import 'package:get_it/get_it.dart';
 import 'package:ferry_flutter/ferry_flutter.dart';
 import 'package:test_drive/AddCommentWidget.dart';
+import 'package:test_drive/ShowCommentWidget.dart';
 
 import './graphql/__generated__/allPullRequests.data.gql.dart';
 import './graphql/__generated__/allPullRequests.req.gql.dart';
@@ -73,39 +76,59 @@ void refetch(){
                 final pullRequest = repo.pullRequest;
                 if (pullRequest!.comments.nodes != null) {
                   final listOfComments = pullRequest.comments.nodes;
-                  return Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10.0),
-                      color: const Color.fromARGB(255, 97, 169, 228),
-                    ),
-                    alignment: Alignment.centerLeft,
-                    child: Row(
-                      children: [
-                        PopUpAdd(pr_id: repo.pullRequest!.id),
-                            Expanded(
-                              child: ListView.builder(
-                              itemCount: listOfComments!.length,
-                              itemBuilder: (context, index) => Padding(
-                                padding: const EdgeInsets.all(12.0),
+                  return Scaffold(
+                      backgroundColor: Colors.purple.shade100,
+                      appBar: AppBar(backgroundColor: Colors.purple.shade300,
+                       title: Center(child: Text(pullRequest.headRefName)),),
+                      body: Row(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.all(40.0),
+                            child: PopUpAdd(pr_id: repo.pullRequest!.id),
+                          ),
+                              Expanded(
                                 child: Column(
                                   children: [
-                                    CircleAvatar(
-                                      backgroundImage: NetworkImage(
-                                          listOfComments[index]!
-                                              .author!
-                                              .avatarUrl
-                                              .value),
+                                    
+                                   // Text(pullRequest.headRefName,
+                                  //  style: const TextStyle(fontSize: 40),) ,
+                                    Expanded(
+                                      child: Container(
+                                        decoration: BoxDecoration(
+                                          color: Color.alphaBlend(const Color.fromARGB(255, 185, 194, 199), Colors.cyanAccent),
+                                          borderRadius: BorderRadius.circular(10)
+                                          ),
+                                        child: ShowComment(
+                                          body: pullRequest.body, 
+                                          name: pullRequest.author!.login, 
+                                          url: pullRequest.author!.avatarUrl.value,
+                                          title :true ),
+                                      ),
+                                    )
+                                    ,
+                                    Expanded(
+                                      child: ListView.builder(
+                                      itemCount: listOfComments!.length,
+                                       itemBuilder: (context, index) => ShowComment(
+                                        body: listOfComments[index]!.body,
+                                       name: listOfComments[index]!.author!.login, 
+                                       url:  listOfComments[index]!.author!.avatarUrl.value,  
+                                       title: false,
+                                       )
+                                                                
+                                        ),
                                     ),
-                                    Text(listOfComments[index]!.body),
                                   ],
                                 ),
                               ),
-                                                        ),
-                            ),
-                            IconButton(onPressed: refetch, icon: const Icon(Icons.read_more)),
-                      ],
-                    ),
-                  );
+                              Padding(
+                                padding: const EdgeInsets.all(40.0),
+                                child: IconButton(onPressed: refetch, icon: const Icon(Icons.read_more)),
+                              ),
+                             
+                        ],
+                      ),
+                      );
                 }
                 return const Text("problem in comments");
               }

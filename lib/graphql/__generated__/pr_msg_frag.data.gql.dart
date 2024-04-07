@@ -20,6 +20,7 @@ abstract class GPRMessage {
 abstract class GPRMessage_author {
   String get G__typename;
   _i1.GURI get avatarUrl;
+  String get login;
   Map<String, dynamic> toJson();
 }
 
@@ -74,6 +75,8 @@ abstract class GPRMessageData_author
   String get G__typename;
   @override
   _i1.GURI get avatarUrl;
+  @override
+  String get login;
   static Serializer<GPRMessageData_author> get serializer =>
       _$gPRMessageDataAuthorSerializer;
 

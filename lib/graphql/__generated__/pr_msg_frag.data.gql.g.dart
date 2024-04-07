@@ -92,6 +92,9 @@ class _$GPRMessageData_authorSerializer
       'avatarUrl',
       serializers.serialize(object.avatarUrl,
           specifiedType: const FullType(_i1.GURI)),
+      'login',
+      serializers.serialize(object.login,
+          specifiedType: const FullType(String)),
     ];
 
     return result;
@@ -116,6 +119,10 @@ class _$GPRMessageData_authorSerializer
         case 'avatarUrl':
           result.avatarUrl.replace(serializers.deserialize(value,
               specifiedType: const FullType(_i1.GURI))! as _i1.GURI);
+          break;
+        case 'login':
+          result.login = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
           break;
       }
     }
@@ -257,18 +264,22 @@ class _$GPRMessageData_author extends GPRMessageData_author {
   final String G__typename;
   @override
   final _i1.GURI avatarUrl;
+  @override
+  final String login;
 
   factory _$GPRMessageData_author(
           [void Function(GPRMessageData_authorBuilder)? updates]) =>
       (new GPRMessageData_authorBuilder()..update(updates))._build();
 
   _$GPRMessageData_author._(
-      {required this.G__typename, required this.avatarUrl})
+      {required this.G__typename, required this.avatarUrl, required this.login})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
         G__typename, r'GPRMessageData_author', 'G__typename');
     BuiltValueNullFieldError.checkNotNull(
         avatarUrl, r'GPRMessageData_author', 'avatarUrl');
+    BuiltValueNullFieldError.checkNotNull(
+        login, r'GPRMessageData_author', 'login');
   }
 
   @override
@@ -285,7 +296,8 @@ class _$GPRMessageData_author extends GPRMessageData_author {
     if (identical(other, this)) return true;
     return other is GPRMessageData_author &&
         G__typename == other.G__typename &&
-        avatarUrl == other.avatarUrl;
+        avatarUrl == other.avatarUrl &&
+        login == other.login;
   }
 
   @override
@@ -293,6 +305,7 @@ class _$GPRMessageData_author extends GPRMessageData_author {
     var _$hash = 0;
     _$hash = $jc(_$hash, G__typename.hashCode);
     _$hash = $jc(_$hash, avatarUrl.hashCode);
+    _$hash = $jc(_$hash, login.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -301,7 +314,8 @@ class _$GPRMessageData_author extends GPRMessageData_author {
   String toString() {
     return (newBuiltValueToStringHelper(r'GPRMessageData_author')
           ..add('G__typename', G__typename)
-          ..add('avatarUrl', avatarUrl))
+          ..add('avatarUrl', avatarUrl)
+          ..add('login', login))
         .toString();
   }
 }
@@ -318,6 +332,10 @@ class GPRMessageData_authorBuilder
   _i1.GURIBuilder get avatarUrl => _$this._avatarUrl ??= new _i1.GURIBuilder();
   set avatarUrl(_i1.GURIBuilder? avatarUrl) => _$this._avatarUrl = avatarUrl;
 
+  String? _login;
+  String? get login => _$this._login;
+  set login(String? login) => _$this._login = login;
+
   GPRMessageData_authorBuilder() {
     GPRMessageData_author._initializeBuilder(this);
   }
@@ -327,6 +345,7 @@ class GPRMessageData_authorBuilder
     if ($v != null) {
       _G__typename = $v.G__typename;
       _avatarUrl = $v.avatarUrl.toBuilder();
+      _login = $v.login;
       _$v = null;
     }
     return this;
@@ -353,7 +372,9 @@ class GPRMessageData_authorBuilder
           new _$GPRMessageData_author._(
               G__typename: BuiltValueNullFieldError.checkNotNull(
                   G__typename, r'GPRMessageData_author', 'G__typename'),
-              avatarUrl: avatarUrl.build());
+              avatarUrl: avatarUrl.build(),
+              login: BuiltValueNullFieldError.checkNotNull(
+                  login, r'GPRMessageData_author', 'login'));
     } catch (_) {
       late String _$failedField;
       try {

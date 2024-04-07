@@ -1,5 +1,6 @@
 
 import 'package:ferry/ferry.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:popover/popover.dart';
@@ -69,13 +70,17 @@ class _AddCommentState extends State<AddComment> {
       height: 200,
       child: Column(
         children: [
-          Container(
-            color: Colors.blue[400],
-            child: TextField(
-              //the textfield for owner
-              controller: controllerA,
-              decoration: const InputDecoration(hintText: 'write your messege'),
-              onSubmitted: (text) => sendMutation(text),
+          Expanded(
+            child: Container(
+              color: Colors.blue[400],
+              child: Expanded(
+                child: TextField(
+                  //the textfield for owner
+                  controller: controllerA,
+                  decoration: const InputDecoration(hintText: 'write your messege'),
+                  onSubmitted: (text) => sendMutation(text),
+                ),
+              ),
             ),
           ),
           Text(userMsg),

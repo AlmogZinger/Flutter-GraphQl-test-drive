@@ -59,17 +59,16 @@ class _PrListState extends State<PrList> {
                             if (newValue is int) {
                               setState(() {
                                 widget.numberPr = newValue;
+
                               });
-                            }
-                          }),
-                     
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                          child: AllPullRequests(
+                              Navigator.push(context,
+                               MaterialPageRoute(builder : (context)=> AllPullRequests(
                               numberPr: widget.numberPr,
                               owner: widget.owner,
-                              nameRepo: widget.name_repo),
-                        ),
+                              nameRepo: widget.name_repo))
+                               );
+                            }
+                          }),
                     ],
                   );
                 }

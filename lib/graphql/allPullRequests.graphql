@@ -6,8 +6,9 @@ query allPullRequests($owner :String! , $name_repo: String!,$pr_num :Int!) {
     pullRequest(number: $pr_num) {
         number
         id
+        headRefName
         ...PRMessage
-        
+
     comments(first: 100){
         nodes{
          ...PRMessage
